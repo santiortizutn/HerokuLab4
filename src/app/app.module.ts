@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BienvenidoComponent } from './paginas/bienvenido/bienvenido.component';
 import { LoginComponent } from './paginas/login/login.component';
 import { ErrorComponent } from './paginas/error/error.component';
 import { HomeComponent } from './paginas/home/home.component';
 import { QuiensoyComponent } from './paginas/quiensoy/quiensoy.component';
 import { EjerciciosComponent } from './paginas/ejercicios/ejercicios.component';
 import { environment } from 'src/environments/environment';
+import { HttpClientModule } from "@angular/common/http";
 
 //firebase
 import { AngularFireModule } from '@angular/fire';
@@ -18,6 +18,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AuthService } from './servicios/auth.service';
+import { UsuariosService } from './servicios/usuarios.service';
+import { RegistroComponent } from './paginas/registro/registro.component';
 //
 
 
@@ -25,12 +28,12 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
-    BienvenidoComponent,
     LoginComponent,
     ErrorComponent,
     HomeComponent,
     QuiensoyComponent,
-    EjerciciosComponent
+    EjerciciosComponent,
+    RegistroComponent
 
 
   ],
@@ -38,13 +41,14 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
-  bootstrap: [AppComponent, BienvenidoComponent]
+  providers: [AuthService, UsuariosService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

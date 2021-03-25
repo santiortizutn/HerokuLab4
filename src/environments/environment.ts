@@ -13,7 +13,9 @@ export const environment = {
     messagingSenderId: "726113077594",
     appId: "1:726113077594:web:e168be5bc0f35cf28ecb63",
     measurementId: "G-0N7PKLRVY0"
-  }
+  },
+
+  hostFirebase:'https://SalaDeJuegos.firebaseio.com/'
 };
 
 /*
