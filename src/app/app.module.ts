@@ -10,6 +10,17 @@ import { ErrorComponent } from './paginas/error/error.component';
 import { HomeComponent } from './paginas/home/home.component';
 import { QuiensoyComponent } from './paginas/quiensoy/quiensoy.component';
 import { EjerciciosComponent } from './paginas/ejercicios/ejercicios.component';
+import { environment } from 'src/environments/environment';
+
+//firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+//
+
+
 
 @NgModule({
   declarations: [
@@ -20,11 +31,18 @@ import { EjerciciosComponent } from './paginas/ejercicios/ejercicios.component';
     HomeComponent,
     QuiensoyComponent,
     EjerciciosComponent
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireAnalyticsModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent, BienvenidoComponent]
