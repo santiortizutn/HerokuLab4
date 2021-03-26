@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule } from "@angular/common/http";
 
 //firebase
+import { AngularFireDatabaseModule} from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
@@ -42,6 +43,7 @@ import { RegistroComponent } from './paginas/registro/registro.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AngularFireDatabaseModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireAnalyticsModule,

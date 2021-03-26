@@ -1,1 +1,17 @@
-<p>registro works!</p>
+
+<div >
+  <h1>REGISTRO</h1>
+  <div class="centro">
+    <input type="text" placeholder="ingrese nombre" [(ngModel)]="usuario.nombre">
+    <br>
+    <input type="email" placeholder="ingrese correo electronico" [(ngModel)]="usuario.correo">
+    <br>
+    <input type="password" placeholder="ingrese contraseña" [(ngModel)]="usuario.clave">
+
+
+    <br>
+    <button [routerLink]="['/']">Volver</button>
+    <br>
+    <button (click)="registrarse()">Enviar datos</button>
+  </div>
+</div>

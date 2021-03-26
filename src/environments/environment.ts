@@ -15,7 +15,7 @@ export const environment = {
     measurementId: "G-0N7PKLRVY0"
   },
 
-  hostFirebase:'https://SalaDeJuegos.firebaseio.com/'
+  hostFirebase:'https://saladejuegos-94f77-default-rtdb.firebaseio.com/'
 };
 
 /*
