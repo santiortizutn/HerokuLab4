@@ -22,6 +22,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AuthService } from './servicios/auth.service';
 import { UsuariosService } from './servicios/usuarios.service';
 import { RegistroComponent } from './paginas/registro/registro.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //
 
 
@@ -48,7 +49,8 @@ import { RegistroComponent } from './paginas/registro/registro.component';
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule
   ],
   providers: [AuthService, UsuariosService],
   bootstrap: [AppComponent]
