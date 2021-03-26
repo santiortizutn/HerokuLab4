@@ -1,7 +1,19 @@
-<h1>LOGIN</h1>
 
-<br>
+<div >
+  <h1>LOGIN</h1>
+  <div>
+    <input type="email" placeholder="ingrese correo electronico" [(ngModel)]="usuario.correo">
+    <br>
+    <input type="password" placeholder="ingrese contraseña" [(ngModel)]="usuario.clave">
 
-<button (click)="home()">HOME</button>
+
+    <br>
+    <button [routerLink]="['/']">Volver</button>
+    <br>
+    <button (click)="logearse()">Enviar datos</button>
+  </div>
+</div>
+
+
 <button (click)="error()">ERROR</button>
 

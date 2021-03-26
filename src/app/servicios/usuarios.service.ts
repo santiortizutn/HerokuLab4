@@ -11,9 +11,17 @@ export class UsuariosService {
 
 
   private usuarios: AngularFireList<any>;
+  private users: Array<Usuario> = [];
 
   constructor(private http:HttpClient, private firebase:AngularFireDatabase) {
     this.usuarios = this.firebase.list('usuarios');
+    this.usuarios.snapshotChanges().forEach(elementos =>{
+      this.users = [];
+      elementos.forEach(snapshot => {
+        const usuario = snapshot.payload.toJSON() as Usuario;
+        this.users.push(usuario);
+      })
+    });
   }
 
 
@@ -24,6 +32,48 @@ export class UsuariosService {
   registrarEnBD(usuario : Usuario){
     return this.http.post(`${environment.hostFirebase}/usuarios.json`, usuario);
   }
+
+  validaLogin(us:Usuario) : Boolean{
+    let log : Boolean = false;
+    this.users.forEach(u => {
+      if (us.correo == u.correo && us.clave == u.clave){
+        log = true;
+      }
+    });
+    return log;
+  }
+
+  validaAlta(us:Usuario) : Boolean{
+    let log : Boolean = true;
+    this.users.forEach(u => {
+      if (us.correo == u.correo){
+        log = false;
+      }
+    });
+    return log;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
