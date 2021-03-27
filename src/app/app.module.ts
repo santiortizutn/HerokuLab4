@@ -12,6 +12,18 @@ import { EjerciciosComponent } from './paginas/ejercicios/ejercicios.component';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from "@angular/common/http";
 
+//angular material
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+
+
+//
+
 //firebase
 import { AngularFireDatabaseModule} from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
@@ -44,13 +56,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    //firebase
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    BrowserAnimationsModule
+    //material
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [AuthService, UsuariosService],
   bootstrap: [AppComponent]
