@@ -9,21 +9,41 @@
 
 
 <br><br><br>
-<div >
-  <h1>REGISTRO</h1>
-  <div class="centro">
 
-    <br>
-    <input type="email" placeholder="ingrese correo electronico" [(ngModel)]="usuario.correo">
-    <br>
-    <input type="password" placeholder="ingrese contraseña" [(ngModel)]="usuario.clave">
-    <br>
-    <input type="password" placeholder="confirme contraseña" [(ngModel)]="claveConfirmada">
+<mat-card class="card-position">
+  <mat-card-header>
+    <span class="espaciador"></span>
+    REGISTRO DE USUARIO
+    <span class="espaciador"></span>
 
-
+  </mat-card-header>
+  <br>
+  <mat-divider></mat-divider>
+  <br>
+  <mat-form-field>
+    <mat-label class="input">Correo electrónico</mat-label>
+    <input matInput type="email"  [(ngModel)]="usuario.correo">
+    <button mat-button *ngIf="usuario.correo" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.correo=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width: 100%;">
+    <mat-label class="input">Contraseña</mat-label>
+    <input matInput type="password" [(ngModel)]="usuario.clave">
+    <button mat-button *ngIf="usuario.clave" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.clave=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
     <br>
-    <button [routerLink]="['/']">Volver</button>
-    <br>
-    <button (click)="registrarse()">Enviar datos</button>
-  </div>
-</div>
+    <mat-form-field>
+    <mat-label class="input">Repetir contraseña</mat-label>
+    <input matInput type="password" [(ngModel)]="claveConfirmada">
+    <button mat-button *ngIf="claveConfirmada" matSuffix mat-icon-button aria-label="Clear" (click)="claveConfirmada=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <br>
+  <br>
+  <button mat-raised-button style="width: 100%; background-color: rgba(255, 2, 2, 0.774);" (click)="registrarse()">Enviar datos</button>
+</mat-card>
