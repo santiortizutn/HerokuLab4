@@ -2,7 +2,12 @@
 
 <mat-toolbar class="tulbar"color="dark">
   <span class="titulo"> SALA DE JUEGOS</span>
-  <mat-toolbar-row >
+  <mat-toolbar-row *ngIf = 'this.logueado'>
+    <span class="espaciador"></span>
+    <button mat-button class="boton-bar hvr-shadow" (click)="salir()"> SALIR<mat-icon>logout</mat-icon></button>
+    <button mat-button class="boton-bar hvr-shadow" (click)="quiensoy()">QUIEN SOY<mat-icon>sentiment_satisfied_alt</mat-icon></button>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf = '!this.logueado'>
     <span class="espaciador"></span>
     <button mat-button class="boton-bar hvr-shadow" (click)="login()"> INGRESAR <mat-icon>login</mat-icon></button>
     <button mat-button class="boton-bar hvr-shadow" (click)="registro()"> REGISTRARSE <mat-icon>control_point</mat-icon></button>
@@ -10,8 +15,14 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<button class="boton-juegos hvr-glow" mat-raised-button matTooltip="Accede a los juegos" (click)="ejercicio()"></button>
-<button class="boton-lista hvr-glow" mat-raised-button matTooltip="Accede a los listados de puntuaciones"></button>
+<div *ngIf = 'this.logueado'>
+  <button class="boton-juegos hvr-glow" mat-raised-button matTooltip="Accede a los juegos" (click)="ejercicio()"></button>
+  <button class="boton-lista hvr-glow" mat-raised-button matTooltip="Accede a los listados de puntuaciones"></button>
+</div>
+<div *ngIf = '!this.logueado'>
+  <button class="boton-juegos hvr-glow" mat-raised-button matTooltip="Accede a los juegos" (click)="noLog()"></button>
+  <button class="boton-lista hvr-glow" mat-raised-button matTooltip="Accede a los listados de puntuaciones" (click)="noLog()"></button>
+</div>
 
 
 

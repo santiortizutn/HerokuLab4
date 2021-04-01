@@ -53,6 +53,19 @@ export class UsuariosService {
     return log;
   }
 
+  validarEmail(valor:string) {
+    if (!/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(valor)) {
+      return false;
+    }
+    return true;
+  }
+
+  validarContraseña( clave:string, claveConfirmada:string) {
+    if ( clave !== claveConfirmada ) {
+      return false;
+    }
+    return true;
+  }
 
 
 

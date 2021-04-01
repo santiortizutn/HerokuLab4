@@ -1,12 +1,24 @@
+<mat-toolbar class="tulbar"color="dark">
+  <span class="titulo"> SALA DE JUEGOS</span>
+  <mat-toolbar-row >
+    <span class="espaciador"></span>
+    <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/']"> VOLVER <mat-icon>replay</mat-icon></button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
+
+
+<br><br><br>
 <div >
   <h1>REGISTRO</h1>
   <div class="centro">
-    <input type="text" placeholder="ingrese nombre" [(ngModel)]="usuario.nombre">
+
     <br>
     <input type="email" placeholder="ingrese correo electronico" [(ngModel)]="usuario.correo">
     <br>
     <input type="password" placeholder="ingrese contraseña" [(ngModel)]="usuario.clave">
+    <br>
+    <input type="password" placeholder="confirme contraseña" [(ngModel)]="claveConfirmada">
 
 
     <br>

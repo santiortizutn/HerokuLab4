@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/clases/usuario';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import Swal  from "sweetalert2";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   usuario: Usuario;
   usuarios:Array<Usuario>;
-  logueo:Boolean = true;
+  logueo:Boolean = false;
 
   constructor(private router: Router, private us:UsuariosService, private auth:AuthService) {
     this.usuarios = [];
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.auth.logOut();
     this.us.obtenerUsuarios().snapshotChanges().forEach(elementos =>{
       this.usuarios = [];
       elementos.forEach(snapshot => {
@@ -40,12 +42,28 @@ export class LoginComponent implements OnInit {
         data => {
           this.usuario = data.user?.toJSON() as Usuario;
           console.log(this.usuario);
-          alert("Logueo existoso!!");
-          this.router.navigate(["/error", { Usuario: this.usuario }]);
+          Swal.fire({
+                title: 'Perfecto',
+                text: 'Logueo exitoso!',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+            }).then((result)=>{
+              if (result.isConfirmed) {
+                this.router.navigate(["/home", { Usuario: this.usuario }]);
+              }
+            });
+
         });
 
     } else {
-      alert("La clave o el correo son incorrectos!");
+        Swal.fire({
+          title: 'Error',
+          text: 'La clave o el usuario son incorrectos!',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
+      });
+
     }
 
 

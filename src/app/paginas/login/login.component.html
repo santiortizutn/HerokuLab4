@@ -4,17 +4,16 @@
   <span class="titulo"> SALA DE JUEGOS</span>
   <mat-toolbar-row >
     <span class="espaciador"></span>
-    <button mat-button class="boton-bar hvr-shadow" > INGRESAR <mat-icon>login</mat-icon></button>
-    <button mat-button class="boton-bar hvr-shadow" > REGISTRARSE <mat-icon>control_point</mat-icon></button>
-    <button mat-button class="boton-bar hvr-shadow" >QUIEN SOY<mat-icon>sentiment_satisfied_alt</mat-icon></button>
+    <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/registro']"> REGISTRARSE <mat-icon>control_point</mat-icon></button>
+    <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/']"> VOLVER <mat-icon>replay</mat-icon></button>
   </mat-toolbar-row>
 </mat-toolbar>
 
 
+<br><br><br>
 
 
-
-<div >
+<div>
   <h1>LOGIN</h1>
   <div>
     <input type="email" placeholder="ingrese correo electronico" [(ngModel)]="usuario.correo">
