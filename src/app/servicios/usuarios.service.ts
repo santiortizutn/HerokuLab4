@@ -61,10 +61,17 @@ export class UsuariosService {
   }
 
   validarContraseña( clave:string, claveConfirmada:string) {
-    if ( clave !== claveConfirmada ) {
+
+    if (clave.length >= 6 && claveConfirmada.length >= 6) {
+      if ( clave === claveConfirmada ) {
+        return true;
+      }else{
+        return false;
+      }
+    }else{
       return false;
     }
-    return true;
+
   }
 
 

@@ -310,6 +310,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+
 .boton-bar{
   color: white;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -317,14 +318,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 }
 
-.input{
-  color: black;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: medium;
 
-}
-
-.card-position{
+.card-r{
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   position: absolute;
   left: 25%;

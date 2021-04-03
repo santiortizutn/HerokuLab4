@@ -10,40 +10,37 @@
 
 <br><br><br>
 
-<mat-card class="card-position">
+<mat-card class="card-r">
   <mat-card-header>
-    <span class="espaciador"></span>
-    REGISTRO DE USUARIO
-    <span class="espaciador"></span>
-
+      <span class="titulo-form">COMPLETE EL REGISTRO DE USUARIO:</span>
   </mat-card-header>
   <br>
   <mat-divider></mat-divider>
   <br>
-  <mat-form-field>
-    <mat-label class="input">Correo electrónico</mat-label>
-    <input matInput type="email"  [(ngModel)]="usuario.correo">
+  <mat-form-field class="form-field">
+    <mat-label class="label">Correo electrónico</mat-label>
+    <input matInput type="email" class="input-font" placeholder="Utiliza '@'." [(ngModel)]="usuario.correo">
     <button mat-button *ngIf="usuario.correo" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.correo=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
   <br>
-  <mat-form-field style="width: 100%;">
-    <mat-label class="input">Contraseña</mat-label>
-    <input matInput type="password" [(ngModel)]="usuario.clave">
+  <mat-form-field class="form-field">
+    <mat-label class="label">Contraseña</mat-label>
+    <input matInput type="password" class="input-font" placeholder="Minimo 6 caracteres." [(ngModel)]="usuario.clave">
     <button mat-button *ngIf="usuario.clave" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.clave=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
     <br>
-    <mat-form-field>
-    <mat-label class="input">Repetir contraseña</mat-label>
-    <input matInput type="password" [(ngModel)]="claveConfirmada">
+    <mat-form-field class="form-field">
+    <mat-label class="label">Repetir contraseña</mat-label>
+    <input matInput type="password" class="input-font" placeholder="Minimo 6 caracteres." [(ngModel)]="claveConfirmada">
     <button mat-button *ngIf="claveConfirmada" matSuffix mat-icon-button aria-label="Clear" (click)="claveConfirmada=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
   <br>
   <br>
-  <button mat-raised-button style="width: 100%; background-color: rgba(255, 2, 2, 0.774);" (click)="registrarse()">Enviar datos</button>
+  <button mat-raised-button class="boton-enviar" (click)="registrarse()">ENVIAR DATOS</button>
 </mat-card>

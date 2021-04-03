@@ -39,10 +39,22 @@ export class RegistroComponent implements OnInit {
       if (this.us.validarContraseña(this.usuario.clave, this.claveConfirmada)) {
         this.registro = this.us.validaAlta(this.usuario);
       } else {
-        alert("las contraseñas deben coincidir");
+          Swal.fire({
+            title: 'ERROR',
+            text: 'Las contraseñas deben coincidir y tener al menos 6 caracteres.',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
+          });
       }
     }else{
-      alert("correo mal escrito");
+      Swal.fire({
+        title: 'ERROR',
+        text: 'El correo es invalido.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+        confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
+      });
     }
     console.log(this.registro);
     if (this.registro == true) {
@@ -53,11 +65,11 @@ export class RegistroComponent implements OnInit {
             data =>{
               console.log(data);
               Swal.fire({
-                title: 'Perfecto',
+                title: 'PERFECTO',
                 text: 'Registro exitoso!',
                 icon: 'success',
                 confirmButtonText: 'Ok',
-                confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
+                confirmButtonColor: 'rgba(255, 2, 2, 0.774)',
             }).then((result)=>{
               if (result.isConfirmed) {
                 this.router.navigate(["/login"]);
@@ -66,13 +78,13 @@ export class RegistroComponent implements OnInit {
             })
         });
     } else {
-      Swal.fire({
-        title: 'Error',
-        text: 'El usuario ya existe',
-        icon: 'error',
-        confirmButtonText: 'Ok',
-        confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
-    });
+        Swal.fire({
+          title: 'ERROR',
+          text: 'El usuario ya existe',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
+        });
     }
 
 

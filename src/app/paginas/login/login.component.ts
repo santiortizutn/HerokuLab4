@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           this.usuario = data.user?.toJSON() as Usuario;
           console.log(this.usuario);
           Swal.fire({
-                title: 'Perfecto',
+                title: 'PERFECTO',
                 text: 'Logueo exitoso!',
                 icon: 'success',
                 confirmButtonText: 'Ok',
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 
     } else {
         Swal.fire({
-          title: 'Error',
+          title: 'ERROR',
           text: 'La clave o el usuario son incorrectos!',
           icon: 'error',
           confirmButtonText: 'Ok',
