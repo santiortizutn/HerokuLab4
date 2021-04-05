@@ -318,6 +318,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 }
 
+/* LOGIN Y REGISTRO */
 
 .card-r{
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -327,6 +328,52 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   max-width: 800px;
   background-color: rgba(255, 255, 255, 0.822);
   box-shadow: 0 0 10px rgb(184, 181, 181) !important;
+}
+
+.label{
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: medium;
+
+}
+
+.form-field{
+  width: 100%;
+}
+
+.boton-enviar{
+  width: 100%;
+  background-color: rgba(255, 2, 2, 0.774);
+  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: x-large;
+
+}
+
+.login-icon{
+  position: relative;
+  max-height: 300px;
+  max-width: 300px;
+  left: 28%;
+}
+
+.titulo-form{
+  font-size: 30px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.input-font{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/**/
+
+.spinner-container{
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  left: 23%;
+
 }
 
 .boton-juegos{

@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   usuario: Usuario;
   usuarios:Array<Usuario>;
   logueo:Boolean = false;
+  loading:Boolean = false;
 
   constructor(private router: Router, private us:UsuariosService, private auth:AuthService) {
     this.usuarios = [];
@@ -22,6 +23,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
+    setTimeout(()=>{
+      this.loading = false;
+    },2000);
+
+
     this.auth.logOut();
     this.us.obtenerUsuarios().snapshotChanges().forEach(elementos =>{
       this.usuarios = [];
@@ -31,6 +38,7 @@ export class LoginComponent implements OnInit {
       })
       console.log(this.usuarios);
     })
+
 
   }
 

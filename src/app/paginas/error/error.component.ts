@@ -9,7 +9,14 @@ export class ErrorComponent implements OnInit {
 
   constructor() { }
 
+  loading:Boolean = false;
+
   ngOnInit(): void {
+
+    this.loading = true;
+    setTimeout(()=>{
+      this.loading = false;
+    },3000);
   }
 
 }

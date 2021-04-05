@@ -16,6 +16,7 @@ export class RegistroComponent implements OnInit {
   usuarios:Array<Usuario>;
   registro:Boolean= true;
   claveConfirmada:string = "";
+  loading:Boolean = false;
 
   constructor(private auth:AuthService, private us:UsuariosService, private router:Router) {
     this.usuarios = [];
@@ -23,6 +24,12 @@ export class RegistroComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.loading = true;
+    setTimeout(()=>{
+      this.loading = false;
+    },2000);
+
     this.us.obtenerUsuarios().snapshotChanges().forEach(elementos =>{
       this.usuarios = [];
       elementos.forEach(snapshot => {
