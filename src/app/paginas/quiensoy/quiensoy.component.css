@@ -18,7 +18,8 @@
 
 .yo-icon{
   position: relative;
-  max-height: 300px;
-  max-width: 300px;
-  left: 25%;
+  max-height: 400px;
+  max-width: 500px;
+  left: 11%;
+  border-radius: 5px;
 }
