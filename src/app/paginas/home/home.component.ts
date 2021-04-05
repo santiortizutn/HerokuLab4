@@ -12,11 +12,17 @@ import Swal  from "sweetalert2";
 export class HomeComponent implements OnInit {
 
   logueado = false;
+  loading:Boolean = false;
 
 
   constructor(private router: Router, private fireAuth:AngularFireAuth, private auth:AuthService) { }
 
   ngOnInit(): void {
+
+    this.loading = true;
+    setTimeout(()=>{
+      this.loading = false;
+    },2000);
 
     this.fireAuth.currentUser.then(resp=>{
       if(resp){
@@ -31,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   noLog(){
     Swal.fire({
-      title: 'Error',
+      title: 'ERROR',
       text: 'Debes estar logueado para usar estas funciones.',
       icon: 'error',
       confirmButtonText: 'Ok',
@@ -44,7 +50,7 @@ export class HomeComponent implements OnInit {
       this.logueado = false;
       console.log("respuestaa ", resp);
       Swal.fire({
-        title: 'Perfecto',
+        title: 'PERFECTO',
         text: 'Deslogueo exitoso!',
         icon: 'success',
         confirmButtonText: 'Ok'

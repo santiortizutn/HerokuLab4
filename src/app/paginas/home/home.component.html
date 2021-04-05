@@ -15,15 +15,20 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div *ngIf = 'this.logueado'>
-  <button class="boton-juegos hvr-glow" mat-raised-button matTooltip="Accede a los juegos" (click)="ejercicio()"></button>
-  <button class="boton-lista hvr-glow" mat-raised-button matTooltip="Accede a los listados de puntuaciones"></button>
-</div>
-<div *ngIf = '!this.logueado'>
-  <button class="boton-juegos hvr-glow" mat-raised-button matTooltip="Accede a los juegos" (click)="noLog()"></button>
-  <button class="boton-lista hvr-glow" mat-raised-button matTooltip="Accede a los listados de puntuaciones" (click)="noLog()"></button>
+<div class="spinner-container" *ngIf="this.loading">
+  <mat-spinner style="top:50%; left: 50%;"></mat-spinner>
 </div>
 
+<div *ngIf="!this.loading">
+  <div *ngIf = 'this.logueado'>
+    <button class="boton-juegos hvr-glow" mat-raised-button matTooltip="Accede a los juegos" (click)="ejercicio()"></button>
+    <button class="boton-lista hvr-glow" mat-raised-button matTooltip="Accede a los listados de puntuaciones"></button>
+  </div>
+  <div *ngIf = '!this.logueado'>
+    <button class="boton-juegos hvr-glow" mat-raised-button matTooltip="Accede a los juegos" (click)="noLog()"></button>
+    <button class="boton-lista hvr-glow" mat-raised-button matTooltip="Accede a los listados de puntuaciones" (click)="noLog()"></button>
+  </div>
+</div>
 
 
 

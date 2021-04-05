@@ -11,7 +11,6 @@ import { RegistroComponent } from './paginas/registro/registro.component';
 const routes: Routes = [
 
   {path: '' , component: HomeComponent},
-  { path: '**', redirectTo: '/home' },
   {path: 'home' , component: HomeComponent},
   {path: 'login' , component: LoginComponent},
   {path: 'quiensoy' , component: QuiensoyComponent},
