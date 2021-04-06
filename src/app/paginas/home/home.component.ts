@@ -58,8 +58,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  ejercicio(){
-    this.router.navigate(["/ejercicios"]);
+  juegos(){
+    this.router.navigate(["/juegos"]);
   }
   login(){
     this.router.navigate(["/login"]);

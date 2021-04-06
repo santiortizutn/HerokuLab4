@@ -21,12 +21,12 @@
 
 <div *ngIf="!this.loading">
   <div *ngIf = 'this.logueado'>
-    <button class="boton-juegos hvr-glow" mat-raised-button matTooltip="Accede a los juegos" (click)="ejercicio()"></button>
-    <button class="boton-lista hvr-glow" mat-raised-button matTooltip="Accede a los listados de puntuaciones"></button>
+    <button class="boton-juegos hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los juegos" (click)="juegos()"></button>
+    <button class="boton-lista hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los listados de puntuaciones"></button>
   </div>
   <div *ngIf = '!this.logueado'>
-    <button class="boton-juegos hvr-glow" mat-raised-button matTooltip="Accede a los juegos" (click)="noLog()"></button>
-    <button class="boton-lista hvr-glow" mat-raised-button matTooltip="Accede a los listados de puntuaciones" (click)="noLog()"></button>
+    <button class="boton-juegos hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los juegos" (click)="noLog()"></button>
+    <button class="boton-lista hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los listados de puntuaciones" (click)="noLog()"></button>
   </div>
 </div>
 

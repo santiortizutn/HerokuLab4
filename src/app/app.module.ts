@@ -11,6 +11,12 @@ import { QuiensoyComponent } from './paginas/quiensoy/quiensoy.component';
 import { EjerciciosComponent } from './paginas/ejercicios/ejercicios.component';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from "@angular/common/http";
+import { AuthService } from './servicios/auth.service';
+import { UsuariosService } from './servicios/usuarios.service';
+import { RegistroComponent } from './paginas/registro/registro.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JuegosComponent } from './paginas/juegos/juegos/juegos.component';
+import { MemotestComponent } from './paginas/juegos/memotest/memotest.component';
 
 //angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -23,6 +29,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 
 
@@ -37,10 +45,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AuthService } from './servicios/auth.service';
-import { UsuariosService } from './servicios/usuarios.service';
-import { RegistroComponent } from './paginas/registro/registro.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 //
 
 
@@ -53,7 +58,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     QuiensoyComponent,
     EjerciciosComponent,
-    RegistroComponent
+    RegistroComponent,
+    JuegosComponent,
+    MemotestComponent
 
 
   ],
@@ -80,7 +87,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSnackBarModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatGridListModule
   ],
   providers: [AuthService, UsuariosService],
   bootstrap: [AppComponent]
