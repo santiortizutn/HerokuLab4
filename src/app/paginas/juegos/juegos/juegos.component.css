@@ -1,0 +1,61 @@
+
+.boton-container{
+  position: absolute;
+  height: 50%;
+  width: 98%;
+  top: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+.div-container{
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+}
+
+
+.boton-memo{
+  width: 300px;
+  height: 300px;
+  font-size: 50px;
+  font-weight: 800;
+  border-radius: 100%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-image: url("../../../../assets/juegos/memo.png");
+  background-size:cover;
+}
+
+.boton-ppt{
+  width: 300px;
+  height: 300px;
+  font-size: 50px;
+  font-weight: 800;
+  border-radius: 100%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-image: url("../../../../assets/juegos/ppt.jpg");
+  background-size:cover;
+  font-variant-position: normal;
+}
+
+.boton-tateti{
+  width: 300px;
+  height: 300px;
+  font-size: 50px;
+  font-weight: 800;
+  border-radius: 100%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-image: url("../../../../assets/juegos/tateti.jfif");
+  background-size:cover;
+}
+
+.boton-mio{
+  width: 300px;
+  height: 300px;
+  font-size: 50px;
+  font-weight: 800;
+  border-radius: 100%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-image: url();
+  background-size:cover;
+}
