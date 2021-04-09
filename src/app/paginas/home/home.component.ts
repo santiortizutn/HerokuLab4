@@ -33,6 +33,8 @@ export class HomeComponent implements OnInit {
       }
     })
 
+    console.log("RUTA: ", this.router.routerState.snapshot.url);
+
   }
 
   noLog(){
