@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
             }).then((result)=>{
               if (result.isConfirmed) {
                 this.us.registrarLogEnBD(new Log(data.user?.email+'', this.ahora)).subscribe();
-                this.router.navigate(["/home", { Usuario: this.usuario }]);
+                this.router.navigate(["/principal", { Usuario: this.usuario }]);
                 this.snackBar.open("Bienvenido "+data.user?.email+"! 🍕", "",{duration:2000});
               }
             });
@@ -84,22 +84,5 @@ export class LoginComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  error(){
-    this.router.navigate(["/error"]);
-  }
 
 }

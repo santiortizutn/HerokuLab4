@@ -89,7 +89,7 @@ export class RegistroComponent implements OnInit {
                 confirmButtonText: 'Ok',
             }).then((result)=>{
               if (result.isConfirmed) {
-                this.router.navigate(["/home"]);
+                this.router.navigate(["/principal"]);
                 this.snackBar.open("Bienvenido "+this.usuario.correo+"! 🍕", "",{duration:2000});
               }
             });

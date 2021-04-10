@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
         this.usuarioActual = resp.email;
       }else{
         this.logueado = false;
-        this.router.navigate(["/login"]);
+        this.router.navigate(["/"]);
       }
     })
 
@@ -39,37 +39,23 @@ export class HomeComponent implements OnInit {
 
   }
 
-  noLog(){
-    Swal.fire({
-      title: 'ERROR',
-      text: 'Debes estar logueado para usar estas funciones.',
-      icon: 'error',
-      confirmButtonText: 'Ok',
-      confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
-    });
-  }
-
   salir(){
     this.auth.logOut().then( resp =>{
       this.logueado = false;
       console.log("respuestaa ", resp);
       this.snackBar.open("Hasta pronto!! ", "",{duration:1000});
-      this.router.navigate(["/login"]);
+      this.router.navigate(["/"]);
     });
   }
 
   juegos(){
     this.router.navigate(["/juegos"]);
   }
-  login(){
-    this.router.navigate(["/login"]);
-  }
+
   quiensoy(){
-    this.router.navigate(["/quiensoy"]);
+    this.router.navigate(["/principal/quiensoy"]);
   }
-  registro(){
-    this.router.navigate(["/registro"]);
-  }
+
 
 
 }

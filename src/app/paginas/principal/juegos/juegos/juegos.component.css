@@ -22,7 +22,7 @@
   font-weight: 800;
   border-radius: 100%;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  background-image: url("../../../../assets/juegos/memo.png");
+  background-image: url("../../../../../assets/juegos/memo.png");
   background-size:cover;
 }
 
@@ -33,7 +33,7 @@
   font-weight: 800;
   border-radius: 100%;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  background-image: url("../../../../assets/juegos/ppt.jpg");
+  background-image: url("../../../../../assets/juegos/ppt.jpg");
   background-size:cover;
   font-variant-position: normal;
 }
@@ -45,7 +45,7 @@
   font-weight: 800;
   border-radius: 100%;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  background-image: url("../../../../assets/juegos/tateti.jfif");
+  background-image: url("../../../../../assets/juegos/tateti.jfif");
   background-size:cover;
 }
 

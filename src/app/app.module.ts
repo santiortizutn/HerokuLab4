@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './paginas/login/login.component';
-import { ErrorComponent } from './paginas/error/error.component';
-import { HomeComponent } from './paginas/home/home.component';
-import { QuiensoyComponent } from './paginas/quiensoy/quiensoy.component';
-import { EjerciciosComponent } from './paginas/ejercicios/ejercicios.component';
+import { ErrorComponent } from './paginas/ingreso/error/error.component';
+import { HomeComponent } from './paginas/principal/home/home.component';
+import { LoginComponent } from './paginas/ingreso/login/login.component';
+import { QuiensoyComponent } from './paginas/principal/quiensoy/quiensoy.component';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from "@angular/common/http";
 import { AuthService } from './servicios/auth.service';
 import { UsuariosService } from './servicios/usuarios.service';
-import { RegistroComponent } from './paginas/registro/registro.component';
+import { RegistroComponent } from './paginas/ingreso/registro/registro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { JuegosComponent } from './paginas/juegos/juegos/juegos.component';
-import { MemotestComponent } from './paginas/juegos/memotest/memotest.component';
+import { JuegosComponent } from './paginas/principal/juegos/juegos/juegos.component';
+import { MemotestComponent } from './paginas/principal/juegos/memotest/memotest.component';
 
 //angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -51,11 +49,10 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     ErrorComponent,
     HomeComponent,
     QuiensoyComponent,
-    EjerciciosComponent,
+    LoginComponent,
     RegistroComponent,
     JuegosComponent,
     MemotestComponent
