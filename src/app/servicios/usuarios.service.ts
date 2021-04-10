@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { Usuario } from '../clases/usuario';
+import { Log } from "../clases/log";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,11 @@ export class UsuariosService {
   registrarEnBD(usuario : Usuario){
     return this.http.post(`${environment.hostFirebase}/usuarios.json`, usuario);
   }
+
+  registrarLogEnBD(log : Log){
+    return this.http.post(`${environment.hostFirebase}/logueos.json`, log);
+  }
+
 
   validaLogin(us:Usuario) : Boolean{
     let log : Boolean = false;

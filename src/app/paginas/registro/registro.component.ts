@@ -4,6 +4,7 @@ import { Usuario } from 'src/app/clases/usuario';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import Swal  from "sweetalert2";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registro',
@@ -14,11 +15,11 @@ export class RegistroComponent implements OnInit {
 
   usuario: Usuario;
   usuarios:Array<Usuario>;
-  registro:Boolean= true;
+  registro:Boolean= false;
   claveConfirmada:string = "";
   loading:Boolean = false;
 
-  constructor(private auth:AuthService, private us:UsuariosService, private router:Router) {
+  constructor(private auth:AuthService, private us:UsuariosService, private router:Router, private snackBar:MatSnackBar) {
     this.usuarios = [];
     this.usuario = new Usuario("", "");
   }
@@ -43,12 +44,22 @@ export class RegistroComponent implements OnInit {
 
   registrarse(){
     if(this.us.validarEmail(this.usuario.correo)){
-      if (this.us.validarContraseña(this.usuario.clave, this.claveConfirmada)) {
-        this.registro = this.us.validaAlta(this.usuario);
-      } else {
+      if (this.us.validaAlta(this.usuario)) {
+        if(this.us.validarContraseña(this.usuario.clave, this.claveConfirmada)){
+          this.registro = true;
+        }else{
           Swal.fire({
             title: 'ERROR',
             text: 'Las contraseñas deben coincidir y tener al menos 6 caracteres.',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
+          });
+        }
+      } else {
+          Swal.fire({
+            title: 'ERROR',
+            text: 'El correo ya esta registrado.',
             icon: 'error',
             confirmButtonText: 'Ok',
             confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
@@ -57,7 +68,7 @@ export class RegistroComponent implements OnInit {
     }else{
       Swal.fire({
         title: 'ERROR',
-        text: 'El correo es invalido.',
+        text: 'El formato del correo es invalido.',
         icon: 'error',
         confirmButtonText: 'Ok',
         confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
@@ -76,10 +87,10 @@ export class RegistroComponent implements OnInit {
                 text: 'Registro exitoso!',
                 icon: 'success',
                 confirmButtonText: 'Ok',
-                confirmButtonColor: 'rgba(255, 2, 2, 0.774)',
             }).then((result)=>{
               if (result.isConfirmed) {
-                this.router.navigate(["/login"]);
+                this.router.navigate(["/home"]);
+                this.snackBar.open("Bienvenido "+this.usuario.correo+"! 🍕", "",{duration:2000});
               }
             });
             })
@@ -90,7 +101,7 @@ export class RegistroComponent implements OnInit {
           text: 'El usuario ya existe',
           icon: 'error',
           confirmButtonText: 'Ok',
-          confirmButtonColor: 'rgba(255, 2, 2, 0.774)'
+          confirmButtonColor: 'rgba(255, 2, 2, 0.774)',
         });
     }
 

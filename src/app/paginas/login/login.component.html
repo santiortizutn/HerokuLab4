@@ -3,7 +3,6 @@
   <mat-toolbar-row >
     <span class="espaciador"></span>
     <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/registro']"> REGISTRARSE <mat-icon>control_point</mat-icon></button>
-    <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/']"> VOLVER <mat-icon>replay</mat-icon></button>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -12,14 +11,19 @@
 </div>
 
 <div *ngIf="!this.loading">
-  <br><br>
-
   <mat-card class="card-r" >
     <mat-card-header>
         <img mat-card-image class="login-icon" src="https://simpleicon.com/wp-content/uploads/multy-user.png" alt="">
     </mat-card-header>
 
     <mat-divider></mat-divider>
+    <br>
+    <mat-form-field class="form-field">
+        <mat-label class="label">Elige un usuario</mat-label>
+        <mat-select [(ngModel)]="usuario">
+          <mat-option *ngFor="let user of usuarios" [value]="user">{{user.correo}}</mat-option>
+        </mat-select>
+    </mat-form-field>
     <br>
     <mat-form-field class="form-field">
       <mat-label class="label">Correo electrónico</mat-label>

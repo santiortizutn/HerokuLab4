@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 import Swal  from "sweetalert2";
@@ -13,9 +14,9 @@ export class HomeComponent implements OnInit {
 
   logueado = false;
   loading:Boolean = false;
+  usuarioActual:any;
 
-
-  constructor(private router: Router, private fireAuth:AngularFireAuth, private auth:AuthService) { }
+  constructor(private router: Router, private fireAuth:AngularFireAuth, private auth:AuthService, private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -26,10 +27,11 @@ export class HomeComponent implements OnInit {
 
     this.fireAuth.currentUser.then(resp=>{
       if(resp){
-        console.log("respuestaa ", resp?.email);
         this.logueado  = true;
+        this.usuarioActual = resp.email;
       }else{
         this.logueado = false;
+        this.router.navigate(["/login"]);
       }
     })
 
@@ -51,12 +53,8 @@ export class HomeComponent implements OnInit {
     this.auth.logOut().then( resp =>{
       this.logueado = false;
       console.log("respuestaa ", resp);
-      Swal.fire({
-        title: 'PERFECTO',
-        text: 'Deslogueo exitoso!',
-        icon: 'success',
-        confirmButtonText: 'Ok'
-      });
+      this.snackBar.open("Hasta pronto!! ", "",{duration:1000});
+      this.router.navigate(["/login"]);
     });
   }
 

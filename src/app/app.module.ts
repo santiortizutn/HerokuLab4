@@ -30,9 +30,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
-
-
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -88,7 +86,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     MatInputModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [AuthService, UsuariosService],
   bootstrap: [AppComponent]

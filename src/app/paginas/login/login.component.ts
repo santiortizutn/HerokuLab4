@@ -4,6 +4,8 @@ import { Usuario } from 'src/app/clases/usuario';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import Swal  from "sweetalert2";
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Log } from 'src/app/clases/log';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +18,9 @@ export class LoginComponent implements OnInit {
   usuarios:Array<Usuario>;
   logueo:Boolean = false;
   loading:Boolean = false;
+  ahora:Date = new Date;
 
-  constructor(private router: Router, private us:UsuariosService, private auth:AuthService) {
+  constructor(private router: Router, private us:UsuariosService, private auth:AuthService, private snackBar:MatSnackBar) {
     this.usuarios = [];
     this.usuario = new Usuario("", "");
   }
@@ -29,7 +32,6 @@ export class LoginComponent implements OnInit {
     },2000);
 
 
-    this.auth.logOut();
     this.us.obtenerUsuarios().snapshotChanges().forEach(elementos =>{
       this.usuarios = [];
       elementos.forEach(snapshot => {
@@ -57,7 +59,9 @@ export class LoginComponent implements OnInit {
                 confirmButtonText: 'Ok',
             }).then((result)=>{
               if (result.isConfirmed) {
+                this.us.registrarLogEnBD(new Log(data.user?.email+'', this.ahora)).subscribe();
                 this.router.navigate(["/home", { Usuario: this.usuario }]);
+                this.snackBar.open("Bienvenido "+data.user?.email+"! 🍕", "",{duration:2000});
               }
             });
 
