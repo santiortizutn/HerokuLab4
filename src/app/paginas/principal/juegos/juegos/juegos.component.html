@@ -1,75 +1,73 @@
-<mat-toolbar class="tulbar"color="dark">
-  <span class="titulo"> SALA DE JUEGOS</span>
-  <mat-toolbar-row >
-    <span class="espaciador"></span>
-    <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/principal']"> VOLVER <mat-icon>replay</mat-icon></button>
-  </mat-toolbar-row>
-</mat-toolbar>
+<div class="principal">
+  <mat-toolbar class="tulbar"color="dark">
+    <span class="titulo"> SALA DE JUEGOS</span>
+    <mat-toolbar-row >
+      <span class="espaciador"></span>
+      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/principal']"> VOLVER <mat-icon>replay</mat-icon></button>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-<div class="spinner-container" *ngIf="this.loading">
-  <mat-spinner style="top:50%; left: 50%;"></mat-spinner>
-</div>
+  <div class="spinner-container" *ngIf="this.loading">
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
 
-<div class="boton-container" *ngIf="!this.loading">
+  <div class="boton-container" *ngIf="!this.loading">
+      <div class="div-container">
+        <button mat-raised-button class="boton-memo hvr-glow hvr-shrink" [routerLink]="['/juegos/memo']"></button>
+        <br>
+        <br>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="tipografia">
+              MEMOTEST
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Juego ideal para entrenar la memoria. Hay que recordar donde estan los objetos iguales, asi de sencillo.</p>
+        </mat-expansion-panel>
+      </div>
 
+      <div class="div-container">
+        <button mat-raised-button class="boton-ppt hvr-glow hvr-shrink"></button>
+        <br>
+        <br>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="tipografia">
+              PIEDRA PAPEL O TIJERA
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Un juego muy conocido y simple. La piedra le gana a la tijera, la tijera al papel y el papel a la pierda. Mucha suerte.</p>
+        </mat-expansion-panel>
+      </div>
 
-    <div class="div-container">
-      <button mat-raised-button class="boton-memo hvr-glow hvr-shrink" [routerLink]="['/juegos/memo']"></button>
-      <br>
-      <br>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title class="tipografia">
-            MEMOTEST
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Juego ideal para entrenar la memoria. Hay que recordar donde estan los objetos iguales, asi de sencillo.</p>
-      </mat-expansion-panel>
-    </div>
+      <div class="div-container">
+        <button mat-raised-button class="boton-tateti hvr-glow hvr-shrink"></button>
+        <br>
+        <br>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="tipografia">
+              TA TE TI
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>El clasico tres en linea o TaTeTi. Es un juego por turnos que consiste en alinear 3 cruces o circulos antes que el rival lo haga.
+             Suele ser azar pero tambien hay que aplicar estrategia.</p>
+        </mat-expansion-panel>
+      </div>
 
-    <div class="div-container">
-      <button mat-raised-button class="boton-ppt hvr-glow hvr-shrink"></button>
-      <br>
-      <br>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title class="tipografia">
-            PIEDRA PAPEL O TIJERA
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Un juego muy conocido y simple. La piedra le gana a la tijera, la tijera al papel y el papel a la pierda. Mucha suerte.</p>
-      </mat-expansion-panel>
-    </div>
-
-    <div class="div-container">
-      <button mat-raised-button class="boton-tateti hvr-glow hvr-shrink"></button>
-      <br>
-      <br>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title class="tipografia">
-            TA TE TI
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>El clasico tres en linea o TaTeTi. Es un juego por turnos que consiste en alinear 3 cruces o circulos antes que el rival lo haga.
-           Suele ser azar pero tambien hay que aplicar estrategia.</p>
-      </mat-expansion-panel>
-    </div>
-
-    <div class="div-container">
-      <button mat-raised-button class="boton-mio hvr-glow hvr-shrink"></button>
-      <br>
-      <br>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title class="tipografia">
-            JUEGO PROPIO
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Aún en desarrollo...</p>
-      </mat-expansion-panel>
-    </div>
-
-
+      <div class="div-container">
+        <button mat-raised-button class="boton-mio hvr-glow hvr-shrink"></button>
+        <br>
+        <br>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="tipografia">
+              JUEGO PROPIO
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Aún en desarrollo...</p>
+        </mat-expansion-panel>
+      </div>
+  </div>
 
 </div>

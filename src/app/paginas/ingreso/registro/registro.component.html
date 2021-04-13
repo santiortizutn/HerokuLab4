@@ -1,51 +1,48 @@
-<mat-toolbar class="tulbar"color="dark">
-  <span class="titulo"> SALA DE JUEGOS</span>
-  <mat-toolbar-row >
-    <span class="espaciador"></span>
-    <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/']"> VOLVER <mat-icon>replay</mat-icon></button>
-  </mat-toolbar-row>
-</mat-toolbar>
-
-<div class="spinner-container" *ngIf="this.loading">
-  <mat-spinner style="top:50%; left: 50%;"></mat-spinner>
-</div>
-
-
-<br>
-<div *ngIf="!this.loading">
-  <mat-card class="card-r">
-    <mat-card-header>
-      <img mat-card-image class="login-icon" src="https://simpleicon.com/wp-content/uploads/multy-user.png" alt="">
-    </mat-card-header>
-
+<div class="principal">
+  <mat-toolbar class="tulbar"color="dark">
+    <span class="titulo"> SALA DE JUEGOS</span>
+    <mat-toolbar-row >
+      <span class="espaciador"></span>
+      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/']"> VOLVER <mat-icon>replay</mat-icon></button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="spinner-container" *ngIf="this.loading">
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
+  <br>
+  <div *ngIf="!this.loading" class="div-container">
+    <mat-card class="card-r">
+      <div style="width: 100%;">
+        <img mat-card-image class="login-icon" src="https://devtalk.blender.org/uploads/default/original/2X/c/cbd0b1a6345a44b58dda0f6a355eb39ce4e8a56a.png" alt="">
     <mat-divider></mat-divider>
-    <br>
-
-    <mat-form-field class="form-field">
-      <mat-label class="label">Correo electrónico</mat-label>
-      <input matInput type="email" class="input-font" placeholder="Utiliza '@'." [(ngModel)]="usuario.correo">
-      <button mat-button *ngIf="usuario.correo" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.correo=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-    <br>
-    <mat-form-field class="form-field">
-      <mat-label class="label">Contraseña</mat-label>
-      <input matInput type="password" class="input-font" placeholder="Minimo 6 caracteres." [(ngModel)]="usuario.clave">
-      <button mat-button *ngIf="usuario.clave" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.clave=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
       <br>
       <mat-form-field class="form-field">
-      <mat-label class="label">Repetir contraseña</mat-label>
-      <input matInput type="password" class="input-font" placeholder="Minimo 6 caracteres." [(ngModel)]="claveConfirmada">
-      <button mat-button *ngIf="claveConfirmada" matSuffix mat-icon-button aria-label="Clear" (click)="claveConfirmada=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-    <br>
-    <br>
-    <button mat-raised-button class="boton-enviar" (click)="registrarse()">ENVIAR DATOS</button>
-  </mat-card>
+        <mat-label class="label">Correo electrónico</mat-label>
+        <input matInput type="email" class="input-font" placeholder="Utiliza '@'." [(ngModel)]="usuario.correo">
+        <button mat-button *ngIf="usuario.correo" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.correo=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form-field">
+        <mat-label class="label">Contraseña</mat-label>
+        <input matInput type="password" class="input-font" placeholder="Minimo 6 caracteres." [(ngModel)]="usuario.clave">
+        <button mat-button *ngIf="usuario.clave" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.clave=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+        <br>
+        <mat-form-field class="form-field">
+        <mat-label class="label">Repetir contraseña</mat-label>
+        <input matInput type="password" class="input-font" placeholder="Minimo 6 caracteres." [(ngModel)]="claveConfirmada">
+        <button mat-button *ngIf="claveConfirmada" matSuffix mat-icon-button aria-label="Clear" (click)="claveConfirmada=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+      <br>
+      <button mat-raised-button class="boton-enviar" (click)="registrarse()">ENVIAR DATOS</button>
+      </div>
+    </mat-card>
+  </div>
 </div>

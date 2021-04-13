@@ -1,22 +1,49 @@
 
+.yo-icon{
+  padding-top: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 800px;
+}
+
 
 .card-q{
-  position: relative;
-  max-width: 800px;
+  max-width: 650px;
   background-color: rgba(255, 255, 255, 0.822);
   box-shadow: 0 0 10px rgb(184, 181, 181) !important;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
-.div-container{
+.div-container {
   position: absolute;
-  top: 17%;
-  left: 28%;
+  top: 15%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 20px ;
+  margin-right: 20px ;
+  margin-top: 20px ;
+  margin-bottom: 20px ;
 }
 
-.yo-icon{
-  position: relative;
-  max-height: 400px;
-  max-width: 500px;
-  left: 11%;
-  border-radius: 5px;
+.example-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
 }

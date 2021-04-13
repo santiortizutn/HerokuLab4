@@ -298,6 +298,16 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 */
 
+/*global*/
+.principal{
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+}
 .espaciador {
   flex: 1 1 auto;
 }
@@ -315,20 +325,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: white;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: medium;
-
 }
 
 /* LOGIN Y REGISTRO */
 
-.card-r{
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  position: absolute;
-  left: 25%;
-  margin-top: 12%;
-  max-width: 800px;
-  background-color: rgba(255, 255, 255, 0.822);
-  box-shadow: 0 0 10px rgb(184, 181, 181) !important;
-}
+
 
 .label{
 
@@ -350,12 +351,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 }
 
-.login-icon{
-  position: relative;
-  max-height: 300px;
-  max-width: 300px;
-  left: 28%;
-}
 
 .titulo-form{
   font-size: 30px;
@@ -370,10 +365,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .spinner-container{
   position: absolute;
-  width: 800px;
-  height: 800px;
-  left: 23%;
+  bottom: 50%;
+  right: 50%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
 
+.spinner{
+  display: block;
+  max-width: 600px;
+  top: 50%;
+  left: 50%;
 }
 
 
@@ -381,37 +384,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.boton-juegos{
-  position: absolute;
-  left: 400px;
-  top: 200px;
-  width: 400px;
-  height: 400px;
-  font-size: 30px;
-  font-weight: 600;
-  background-image: url(https://cdn5.dibujos.net/dibujos/pintados/201042/88cfdfceaac398e1a917484ad03d8038.png);
-  background-size: cover;
-
-
-}
-
-.boton-lista{
-  position: absolute;
-  top: 200px;
-  left: 450px;
-  width: 400px;
-  height: 400px;
-  font-size: 30px;
-  font-weight: 600;
-  background-image: url(https://badgeos.org/wp-content/uploads/edd/2013/11/leaderboard.png);
-  background-size: contain;
-
-}
-
-
 
 .tulbar{
-  position: absolute;
+  position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   right: 0;

@@ -15,6 +15,10 @@ import { RegistroComponent } from './paginas/ingreso/registro/registro.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JuegosComponent } from './paginas/principal/juegos/juegos/juegos.component';
 import { MemotestComponent } from './paginas/principal/juegos/memotest/memotest.component';
+import { PiedrapapeltijeraComponent } from './paginas/principal/juegos/piedrapapeltijera/piedrapapeltijera.component';
+import { TatetiComponent } from './paginas/principal/juegos/tateti/tateti.component';
+
+
 
 //angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -29,9 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
-
-
-
+import { MatSidenavModule } from '@angular/material/sidenav';
 //
 
 //firebase
@@ -55,8 +57,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     LoginComponent,
     RegistroComponent,
     JuegosComponent,
-    MemotestComponent
-
+    MemotestComponent,
+    PiedrapapeltijeraComponent,
+    TatetiComponent
 
   ],
   imports: [
@@ -84,7 +87,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     MatProgressSpinnerModule,
     MatExpansionModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSidenavModule
   ],
   providers: [AuthService, UsuariosService],
   bootstrap: [AppComponent]

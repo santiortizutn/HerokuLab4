@@ -1,52 +1,61 @@
-<mat-toolbar class="tulbar"color="dark">
-  <span class="titulo"> SALA DE JUEGOS</span>
-  <mat-toolbar-row >
-    <span class="espaciador"></span>
-    <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/principal']"> VOLVER <mat-icon>replay</mat-icon></button>
-  </mat-toolbar-row>
-</mat-toolbar>
 
-<div class="spinner-container" *ngIf="this.loading">
-  <mat-spinner style="top:50%; left: 50%;"></mat-spinner>
+<div class="principal">
+  <mat-toolbar class="tulbar"color="dark">
+    <span class="titulo"> SALA DE JUEGOS</span>
+    <mat-toolbar-row >
+      <span class="espaciador"></span>
+      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/principal']"> VOLVER <mat-icon>replay</mat-icon></button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="spinner-container" *ngIf="this.loading">
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
+  <div *ngIf="!this.loading" class="div-container hvr-glow">
+    <mat-card class="card-q">
+      <mat-card-content>
+          <img mat-card-image class="yo-icon" src="../../../assets/yo.jpg">
+          <mat-accordion  multi>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title class="tipografia">
+                  INFORMACIÓN PERSONAL
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p>Me llamo Santiago Ortiz, tengo 23 años, estoy a un par de materias de recibirme y me gusta programar.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title class="tipografia">
+                  INFORMACIÓN DEL JUEGO
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>El juego consiste en un juego.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title class="tipografia">
+                  LINKS IMPORTANTES
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div>
+                <p>Github del proyecto: </p> <a href="https://github.com/santiortizutn/HerokuLab4">https://github.com/santiortizutn/HerokuLab4</a>
+              </div>
+              <br>
+              <div>
+                <p>LinkedIn personal: </p> <a href="https://www.linkedin.com/in/santiago-ortiz-85b37b114/">https://www.linkedin.com/in/santiago-ortiz-85b37b114/</a>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+
 </div>
 
-<div *ngIf="!this.loading" class="div-container hvr-glow">
-  <mat-card class="card-q">
-    <mat-card-header>
-      <img mat-card-image class="yo-icon" src="../../../assets/yo.jpg">
-    </mat-card-header>
+<!--
 
-    <mat-accordion  multi>
-      <mat-expansion-panel >
-        <mat-expansion-panel-header>
-          <mat-panel-title class="tipografia">
-            INFORMACIÓN PERSONAL
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-          <p>Me llamo Santiago Ortiz, tengo 23 años, estoy a un par de materias de recibirme y me gusta programar.</p>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title class="tipografia">
-            INFORMACIÓN DEL JUEGO
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>El juego consiste en un juego.</p>
-      </mat-expansion-panel>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title class="tipografia">
-            LINKS IMPORTANTES
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div>
-          <p>Github del proyecto: </p> <a href="https://github.com/santiortizutn/HerokuLab4">https://github.com/santiortizutn/HerokuLab4</a>
-        </div>
-        <br>
-        <div>
-          <p>LinkedIn personal: </p> <a href="https://www.linkedin.com/in/santiago-ortiz-85b37b114/">https://www.linkedin.com/in/santiago-ortiz-85b37b114/</a>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </mat-card>
-</div>
+-->

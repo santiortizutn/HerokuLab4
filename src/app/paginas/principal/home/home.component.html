@@ -1,24 +1,27 @@
 
+<div class="principal">
+  <mat-toolbar class="tulbar"color="dark">
+    <span class="titulo"> SALA DE JUEGOS</span>
+    <mat-toolbar-row *ngIf = 'this.logueado'>
+      <span class="espaciador"></span>
+      <button mat-button class="boton-bar hvr-shadow" (click)="salir()"> SALIR<mat-icon>logout</mat-icon></button>
+      <button mat-button class="boton-bar hvr-shadow" (click)="quiensoy()">QUIEN SOY<mat-icon>sentiment_satisfied_alt</mat-icon></button>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-<mat-toolbar class="tulbar"color="dark">
-  <span class="titulo"> SALA DE JUEGOS</span>
-  <mat-toolbar-row *ngIf = 'this.logueado'>
-    <span class="espaciador"></span>
-    <button mat-button class="boton-bar hvr-shadow" (click)="salir()"> SALIR<mat-icon>logout</mat-icon></button>
-    <button mat-button class="boton-bar hvr-shadow" (click)="quiensoy()">QUIEN SOY<mat-icon>sentiment_satisfied_alt</mat-icon></button>
-  </mat-toolbar-row>
-</mat-toolbar>
+  <div class="spinner-container" *ngIf="this.loading">
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
 
-<div class="spinner-container" *ngIf="this.loading">
-  <mat-spinner style="top:50%; left: 50%;"></mat-spinner>
-</div>
-
-<div *ngIf="!this.loading">
-  <div *ngIf = 'this.logueado'>
-    <button class="boton-juegos hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los juegos" (click)="juegos()"></button>
-    <button class="boton-lista hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los listados de puntuaciones"></button>
+  <div *ngIf="!this.loading" class="div-container">
+    <div *ngIf = 'this.logueado' class="card-h">
+        <button class="boton-juegos hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los juegos" (click)="juegos()"></button>
+        <button class="boton-lista hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los listados de puntuaciones"></button>
+    </div>
   </div>
 </div>
+
+
 
 
 

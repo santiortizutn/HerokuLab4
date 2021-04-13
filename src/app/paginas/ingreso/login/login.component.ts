@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   logueo:Boolean = false;
   loading:Boolean = false;
   ahora:Date = new Date;
-
+  side=false;
   constructor(private router: Router, private us:UsuariosService, private auth:AuthService, private snackBar:MatSnackBar) {
     this.usuarios = [];
     this.usuario = new Usuario("", "");
