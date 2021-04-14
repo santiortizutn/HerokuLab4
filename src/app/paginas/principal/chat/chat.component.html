@@ -1,0 +1,27 @@
+
+
+<button mat-icon-button class="chat-btn">
+  <mat-icon>comment</mat-icon>
+</button>
+
+<div class="chat-popup">
+  <div class="chat-area" #chatArea>
+    <div class="income-msg" *ngFor="let mensaje of this.mensajes">
+      <mat-label class="msg">
+        <p class="titulo">{{mensaje.usuario}}</p>
+        <p class="contenido">{{mensaje.contenido}}</p>
+        <p class="fecha">{{mensaje.fecha}}</p>
+      </mat-label>
+      <br>
+    </div>
+  </div>
+    <div class="text-area">
+      <button mat-button mat-icon-button id="emojiBtn">
+        <mat-icon>mood</mat-icon>
+      </button>
+        <input matInput class="input" type="text" id="input">
+      <button mat-button mat-icon-button class="submit" (click)="enviar()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+</div>

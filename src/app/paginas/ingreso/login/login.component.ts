@@ -7,6 +7,7 @@ import Swal  from "sweetalert2";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Log } from 'src/app/clases/log';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,8 +19,8 @@ export class LoginComponent implements OnInit {
   usuarios:Array<Usuario>;
   logueo:Boolean = false;
   loading:Boolean = false;
-  ahora:Date = new Date;
-  side=false;
+  juegoActual = "Tateti";
+
   constructor(private router: Router, private us:UsuariosService, private auth:AuthService, private snackBar:MatSnackBar) {
     this.usuarios = [];
     this.usuario = new Usuario("", "");
@@ -39,10 +40,9 @@ export class LoginComponent implements OnInit {
         this.usuarios.push(usuario);
       })
       console.log(this.usuarios);
-    })
-
-
+    });
   }
+
 
   logearse(){
     this.logueo = this.us.validaLogin(this.usuario);
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
                 confirmButtonText: 'Ok',
             }).then((result)=>{
               if (result.isConfirmed) {
-                this.us.registrarLogEnBD(new Log(data.user?.email+'', this.ahora)).subscribe();
+                this.us.registrarLogEnBD(new Log(data.user?.email+'', new Date().toLocaleString())).subscribe();
                 this.router.navigate(["/principal", { Usuario: this.usuario }]);
                 this.snackBar.open("Bienvenido "+data.user?.email+"! 🍕", "",{duration:2000});
               }

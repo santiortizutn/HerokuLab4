@@ -306,7 +306,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: flex;
   align-content: center;
   justify-content: center;
-
+  background-color: transparent;
+  overflow-x: hidden;
 }
 .espaciador {
   flex: 1 1 auto;

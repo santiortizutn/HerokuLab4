@@ -25,6 +25,7 @@
     "@angular/platform-browser": "~11.2.6",
     "@angular/platform-browser-dynamic": "~11.2.6",
     "@angular/router": "~11.2.6",
+    "@joeattardi/emoji-button": "^4.6.0",
     "@sweetalert2/themes": "^4.0.3",
     "express": "^4.17.1",
     "firebase": "^8.3.1",

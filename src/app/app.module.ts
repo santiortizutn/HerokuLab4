@@ -17,6 +17,7 @@ import { JuegosComponent } from './paginas/principal/juegos/juegos/juegos.compon
 import { MemotestComponent } from './paginas/principal/juegos/memotest/memotest.component';
 import { PiedrapapeltijeraComponent } from './paginas/principal/juegos/piedrapapeltijera/piedrapapeltijera.component';
 import { TatetiComponent } from './paginas/principal/juegos/tateti/tateti.component';
+import { ChatComponent } from './paginas/principal/chat/chat.component';
 
 
 
@@ -43,6 +44,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { MensajesService } from './servicios/mensajes.service';
 
 //
 
@@ -59,7 +61,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     JuegosComponent,
     MemotestComponent,
     PiedrapapeltijeraComponent,
-    TatetiComponent
+    TatetiComponent,
+    ChatComponent
 
   ],
   imports: [
@@ -90,7 +93,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     MatSelectModule,
     MatSidenavModule
   ],
-  providers: [AuthService, UsuariosService],
+  providers: [AuthService, UsuariosService, MensajesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

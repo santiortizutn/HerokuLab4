@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IngresoRoutingModule } from './ingreso-routing.module';
 
 
+
 @NgModule({
   declarations: [
   ],
@@ -10,5 +11,6 @@ import { IngresoRoutingModule } from './ingreso-routing.module';
     CommonModule,
     IngresoRoutingModule
   ]
+
 })
 export class IngresoModule { }

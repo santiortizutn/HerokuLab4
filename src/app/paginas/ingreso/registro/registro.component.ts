@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import Swal  from "sweetalert2";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Log } from 'src/app/clases/log';
 
 @Component({
   selector: 'app-registro',
@@ -89,6 +90,7 @@ export class RegistroComponent implements OnInit {
                 confirmButtonText: 'Ok',
             }).then((result)=>{
               if (result.isConfirmed) {
+                this.us.registrarLogEnBD(new Log(this.usuario.correo+'', new Date().toLocaleString())).subscribe();
                 this.router.navigate(["/principal"]);
                 this.snackBar.open("Bienvenido "+this.usuario.correo+"! 🍕", "",{duration:2000});
               }

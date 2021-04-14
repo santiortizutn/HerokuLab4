@@ -1,11 +1,11 @@
 export class Log {
 
-  date: Date = new Date;
+  date: string;
   usuario : string = '';
 
-  constructor(usuario:string, date:Date){
+  constructor(usuario:string, date:string){
     this.usuario = usuario;
-    this.date = new Date;
+    this.date = date;
   }
 
 }
