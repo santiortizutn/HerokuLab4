@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-memotest',
@@ -12,9 +14,11 @@ export class MemotestComponent implements OnInit {
   array1:Array<number> = [];
   array2:Array<number> = [];
   arrayFinal:Array<string> = [];
+  juegoActual:string = "Memotest";
+  usuarioActual:string = "";
+  logueado:boolean = false;
 
-
-  constructor() {
+  constructor(private fireAuth:AngularFireAuth, private router: Router) {
 
   }
 
@@ -23,6 +27,18 @@ export class MemotestComponent implements OnInit {
     setTimeout(()=>{
       this.loading = false;
     },2000);
+
+    // usuario logueado actual
+    this.fireAuth.currentUser.then(resp=>{
+      if(resp){
+        this.logueado  = true;
+        this.usuarioActual = resp.email!;
+        console.log(this.usuarioActual);
+      }else{
+        this.logueado = false;
+        this.router.navigate(["/"]);
+      }
+    })
 
     this.array1 = this.generarArrays();
     this.array2 = this.generarArrays();

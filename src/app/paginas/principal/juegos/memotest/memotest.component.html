@@ -11,6 +11,7 @@
 </div>
 
 <div *ngIf="!this.loading">
+  <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
   <div class="div-cont">
     <div class="card-q" >
       <button mat-raised-button class="buton {{this.arrayFinal[0]}}"></button>

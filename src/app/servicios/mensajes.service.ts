@@ -21,11 +21,6 @@ export class MensajesService {
     return this.mensajes;
   }
 
-
-
-
-
-
   registrarEnBD(mensaje : Mensaje, juego : string){
     return this.http.post(`${environment.hostFirebase}/mensajes${juego}.json`, mensaje);
   }
