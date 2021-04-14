@@ -51,9 +51,13 @@ export class ChatComponent implements OnInit {
 
     picker.on('emoji', selection => {
       console.log(selection.emoji);
-      document.querySelector('input')!.value += selection.emoji;
-    });
-    trigger.addEventListener('click', () => picker.togglePicker(<HTMLElement>trigger));
+      this.mensaje.contenido +=selection.emoji;
+      console.log(this.mensaje.contenido);
+      this.btnDisabled = false;
+    })
+    trigger.addEventListener('click', () => {
+      picker.togglePicker(<HTMLElement>trigger)
+    } );
     //
 
     // popup chat
@@ -65,8 +69,7 @@ export class ChatComponent implements OnInit {
       popup.classList.toggle('show');
     })
     //
-    document.querySelector('input')?.addEventListener('input', (value) => {
-
+    document.querySelector('input')?.addEventListener('input', () => {
       this.validarBoton();
     });
   }
@@ -91,9 +94,9 @@ export class ChatComponent implements OnInit {
   }
 
   validarBoton(){
+
     if (!/^\s*$/.test(this.mensaje.contenido)) {
       this.btnDisabled = false;
-
     }else{
       this.btnDisabled = true;
     }
