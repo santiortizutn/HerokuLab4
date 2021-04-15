@@ -18,8 +18,7 @@ import { MemotestComponent } from './paginas/principal/juegos/memotest/memotest.
 import { PiedrapapeltijeraComponent } from './paginas/principal/juegos/piedrapapeltijera/piedrapapeltijera.component';
 import { TatetiComponent } from './paginas/principal/juegos/tateti/tateti.component';
 import { ChatComponent } from './paginas/principal/chat/chat.component';
-
-
+import { CabeceraComponent } from './paginas/principal/cabecera/cabecera.component';
 
 //angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -45,9 +44,7 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { MensajesService } from './servicios/mensajes.service';
-
 //
-
 
 
 @NgModule({
@@ -62,7 +59,8 @@ import { MensajesService } from './servicios/mensajes.service';
     MemotestComponent,
     PiedrapapeltijeraComponent,
     TatetiComponent,
-    ChatComponent
+    ChatComponent,
+    CabeceraComponent
 
   ],
   imports: [

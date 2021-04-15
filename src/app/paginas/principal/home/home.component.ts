@@ -39,21 +39,20 @@ export class HomeComponent implements OnInit {
 
   }
 
-  salir(){
-    this.auth.logOut().then( resp =>{
-      this.logueado = false;
-      console.log("respuestaa ", resp);
-      this.snackBar.open("Hasta pronto!! ", "",{duration:1000});
-      this.router.navigate(["/"]);
-    });
+  salir(confirmacion:boolean){
+    if(confirmacion){
+      this.auth.logOut().then( resp =>{
+        this.logueado = false;
+        console.log("respuestaa ", resp);
+        this.snackBar.open("Hasta pronto!! ", "",{duration:1000});
+        this.router.navigate(["/"]);
+      });
+    }
+
   }
 
   juegos(){
     this.router.navigate(["/juegos"]);
-  }
-
-  quiensoy(){
-    this.router.navigate(["/principal/quiensoy"]);
   }
 
 

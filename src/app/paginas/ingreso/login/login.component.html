@@ -1,14 +1,5 @@
-
-
-  <div class="principal">
-    <mat-toolbar class="tulbar"color="dark">
-      <span class="titulo"> SALA DE JUEGOS</span>
-      <mat-toolbar-row >
-        <span class="espaciador"></span>
-        <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/registro']"> REGISTRARSE <mat-icon>control_point</mat-icon></button>
-      </mat-toolbar-row>
-    </mat-toolbar>
-
+<app-cabecera [componente]="'login'"></app-cabecera>
+<div class="principal">
     <div class="spinner-container" *ngIf="this.loading">
       <mat-spinner class="spinner"></mat-spinner>
     </div>

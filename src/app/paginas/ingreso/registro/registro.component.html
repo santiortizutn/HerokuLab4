@@ -1,11 +1,6 @@
+
+<app-cabecera [componente]="'registro'"></app-cabecera>
 <div class="principal">
-  <mat-toolbar class="tulbar"color="dark">
-    <span class="titulo"> SALA DE JUEGOS</span>
-    <mat-toolbar-row >
-      <span class="espaciador"></span>
-      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/']"> VOLVER <mat-icon>replay</mat-icon></button>
-    </mat-toolbar-row>
-  </mat-toolbar>
   <div class="spinner-container" *ngIf="this.loading">
     <mat-spinner class="spinner"></mat-spinner>
   </div>

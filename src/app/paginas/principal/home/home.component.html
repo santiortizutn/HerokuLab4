@@ -1,14 +1,6 @@
+<app-cabecera [componente]="'home'" (evento)= "salir($event)"></app-cabecera>
 
 <div class="principal">
-  <mat-toolbar class="tulbar"color="dark">
-    <span class="titulo"> SALA DE JUEGOS</span>
-    <mat-toolbar-row *ngIf = 'this.logueado'>
-      <span class="espaciador"></span>
-      <button mat-button class="boton-bar hvr-shadow" (click)="salir()"> SALIR<mat-icon>logout</mat-icon></button>
-      <button mat-button class="boton-bar hvr-shadow" (click)="quiensoy()">QUIEN SOY<mat-icon>sentiment_satisfied_alt</mat-icon></button>
-    </mat-toolbar-row>
-  </mat-toolbar>
-
   <div class="spinner-container" *ngIf="this.loading">
     <mat-spinner class="spinner"></mat-spinner>
   </div>

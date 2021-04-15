@@ -1,0 +1,23 @@
+
+  <div class="tulbar">
+    <span class="titulo"> SALA DE JUEGOS</span>
+    <div class="tulbar-btn" *ngIf="this.componenteActual == 'login'">
+      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/registro']"> REGISTRARSE <mat-icon>control_point</mat-icon></button>
+    </div>
+    <div class="tulbar-btn" *ngIf="this.componenteActual == 'registro'">
+      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/']"> VOLVER <mat-icon>replay</mat-icon></button>
+    </div>
+    <div class="tulbar-btn" *ngIf="this.componenteActual == 'home'">
+      <button mat-button class="boton-bar hvr-shadow" (click)="deslogueo()"> SALIR<mat-icon>logout</mat-icon></button>
+      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/principal/quiensoy']">QUIEN SOY<mat-icon>sentiment_satisfied_alt</mat-icon></button>
+    </div>
+    <div class="tulbar-btn" *ngIf="this.componenteActual == 'quiensoy'">
+      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/principal']"> VOLVER <mat-icon>replay</mat-icon></button>
+    </div>
+    <div class="tulbar-btn" *ngIf="this.componenteActual == 'quiensoy' || this.componenteActual == 'menujuego'">
+      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/principal']"> VOLVER <mat-icon>replay</mat-icon></button>
+    </div>
+    <div class="tulbar-btn" *ngIf="this.componenteActual == 'juego'">
+      <button mat-button class="boton-bar hvr-shadow" [routerLink]="['/juegos']"> VOLVER <mat-icon>replay</mat-icon></button>
+    </div>
+  </div>

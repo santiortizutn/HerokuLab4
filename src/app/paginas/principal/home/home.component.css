@@ -4,6 +4,7 @@
   display: flex;
   align-content: center;
   justify-content: center;
+
 }
 
 /*card home*/
@@ -12,10 +13,11 @@
   align-content: center;
   justify-content: center;
   background-color: transparent;
+  flex-wrap: wrap;
 }
 
 .boton-juegos{
-  margin-right: 10px;
+  margin: 20px;
   width: 400px;
   height: 400px;
   background-image: url(https://cdn5.dibujos.net/dibujos/pintados/201042/88cfdfceaac398e1a917484ad03d8038.png);
@@ -25,7 +27,7 @@
 }
 
 .boton-lista{
-  margin-left: 10px;
+  margin: 20px;
   width: 400px;
   height: 400px;
   background-image: url(https://badgeos.org/wp-content/uploads/edd/2013/11/leaderboard.png);
