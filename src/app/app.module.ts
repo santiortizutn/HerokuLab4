@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ErrorComponent } from './paginas/ingreso/error/error.component';
+import { ErrorComponent } from './componentes/error/error.component';
 import { HomeComponent } from './paginas/principal/home/home.component';
 import { LoginComponent } from './paginas/ingreso/login/login.component';
 import { QuiensoyComponent } from './paginas/principal/quiensoy/quiensoy.component';
@@ -17,8 +17,8 @@ import { JuegosComponent } from './paginas/principal/juegos/juegos/juegos.compon
 import { MemotestComponent } from './paginas/principal/juegos/memotest/memotest.component';
 import { PiedrapapeltijeraComponent } from './paginas/principal/juegos/piedrapapeltijera/piedrapapeltijera.component';
 import { TatetiComponent } from './paginas/principal/juegos/tateti/tateti.component';
-import { ChatComponent } from './paginas/principal/chat/chat.component';
-import { CabeceraComponent } from './paginas/principal/cabecera/cabecera.component';
+import { ChatComponent } from './componentes/chat/chat.component';
+import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 
 //angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -89,7 +89,7 @@ import { MensajesService } from './servicios/mensajes.service';
     MatExpansionModule,
     MatGridListModule,
     MatSelectModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
   providers: [AuthService, UsuariosService, MensajesService],
   bootstrap: [AppComponent]

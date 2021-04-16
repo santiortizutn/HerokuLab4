@@ -6,7 +6,30 @@
     <mat-spinner class="spinner"></mat-spinner>
   </div>
 
-  <div *ngIf="!this.loading">
+
+  <div *ngIf="!this.loading" class="div-container">
+    <div class="card-q" *ngIf="comenzo">
+      <div class="boton-container">
+        <span class="tipografia titel"> Elegir una opción</span>
+        <br>
+        <img class="imagen" *ngIf="!piedra" src="../../../../../assets/ppt/piedra.png" (click)="elegirOpcion('piedra')">
+        <img class="imagen" *ngIf="!papel" src="../../../../../assets/ppt/papel.png" (click)="elegirOpcion('papel')">
+
+        <img class="imagen" *ngIf="!tijera" src="../../../../../assets/ppt/tijera.png" (click)="elegirOpcion('tijera')">
+
+      </div>
+      <div class="boton-container">
+        <span class="tipografia titel"> Oponente (PC)</span>
+        <br>
+        <img class="imagenpc" *ngIf="!piedraPc" src="../../../../../assets/ppt/piedra.png" >
+
+        <img class="imagenpc" *ngIf="!papelPc" src="../../../../../assets/ppt/papel.png" >
+
+        <img class="imagenpc" *ngIf="!tijeraPc" src="../../../../../assets/ppt/tijera.png">
+
+      </div>
+    </div>
+    <button *ngIf="!comenzo" class="btn-comenzar" (click)="comenzar()"> COMENZAR A JUGAR</button>
     <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
   </div>
 </div>

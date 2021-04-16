@@ -22,7 +22,7 @@
   height: 300px;
   display: flex;
   border-radius: 100%;
-  background-image: url("../../../../../../src/assets/juegos/memo.png");
+  background-image: url("../../../../../../../PrimerApp/src/assets/juegos/memo.png");
   background-size:cover;
 }
 
@@ -31,7 +31,7 @@
   height: 300px;
   display: flex;
   border-radius: 100%;
-  background-image: url("../../../../../../src/assets/juegos/ppt.jpg");
+  background-image: url("../../../../../../../PrimerApp/src/assets/juegos/ppt.jpg");
   background-size:cover;
 }
 
@@ -40,7 +40,7 @@
   height: 300px;
   display: flex;
   border-radius: 100%;
-  background-image: url("../../../../../../src/assets/juegos/tateti.jfif");
+  background-image: url("../../../../../../../PrimerApp/src/assets/juegos/tateti.jfif");
   background-size:cover;
 }
 
@@ -49,7 +49,7 @@
   height: 300px;
   display: flex;
   border-radius: 100%;
-  background-image: url();
+  background-image: url("../../../../../assets/juegos/dados.jpg");
   background-size:cover;
 }
 
