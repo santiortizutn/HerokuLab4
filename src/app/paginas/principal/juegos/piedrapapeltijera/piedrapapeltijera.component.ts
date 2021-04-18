@@ -46,7 +46,7 @@ export class PiedrapapeltijeraComponent implements OnInit {
         console.log(this.usuarioActual);
       }else{
         this.logueado = false;
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       }
     })
   }
@@ -154,7 +154,7 @@ export class PiedrapapeltijeraComponent implements OnInit {
           icon:'success',
           title: 'Felicidades, ganaste!',
           showConfirmButton: false,
-          timer: 2000
+          timer:2000
         }).then(()=>{this.comenzar()});
     }else{
       if (resultado == false) {
@@ -163,7 +163,7 @@ export class PiedrapapeltijeraComponent implements OnInit {
           icon:'error',
           title: 'Perdiste, segui intentando!',
           showConfirmButton: false,
-          timer: 2000
+          timer:2000
         }).then(()=>{this.comenzar()});
       } else {
         if (resultado == null) {
@@ -172,7 +172,7 @@ export class PiedrapapeltijeraComponent implements OnInit {
             icon:'warning',
             title: 'Empate, intenta de nuevo!',
             showConfirmButton: false,
-            timer: 2000
+            timer:2000
           }).then(()=>{this.comenzar()})
         }
 

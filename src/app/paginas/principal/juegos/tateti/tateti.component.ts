@@ -14,6 +14,10 @@ export class TatetiComponent implements OnInit {
   usuarioActual:string = "";
   logueado:boolean = false;
 
+  // para el juego
+  comenzo : boolean = false;
+  eligio : boolean = false;
+
   constructor(private fireAuth:AngularFireAuth, private router: Router) { }
 
   ngOnInit(): void {
@@ -30,9 +34,14 @@ export class TatetiComponent implements OnInit {
         console.log(this.usuarioActual);
       }else{
         this.logueado = false;
-        this.router.navigate(["/"]);
+       // this.router.navigate(["/"]);
       }
     })
+  }
+
+
+  comenzar(){
+    this.comenzo = true;
   }
 
 }

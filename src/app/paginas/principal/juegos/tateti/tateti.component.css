@@ -1,0 +1,137 @@
+.div-container{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  max-height: 1000px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 20px ;
+  margin-right: 20px ;
+  margin-top: 20px ;
+  margin-bottom: 20px ;
+}
+
+.card-q{
+  margin-top: 20px;
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.822);
+  box-shadow: 0 0 10px rgb(184, 181, 181) !important;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  animation: popup 1s;
+}
+
+@keyframes popup {
+  0%{
+    transform: scale(0.8);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.boton-container{
+  display: flex;
+  width: 400px;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+}
+
+.eleccion-container{
+  display: flex;
+  width: 500px;
+  align-content: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  margin-bottom: 20px;
+
+}
+
+.eleccion{
+  margin: 5px auto;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  border-radius: 25px;
+  padding: 10px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.eleccion:hover{
+  background-color: rgb(245, 245, 245);
+}
+
+.encabezado{
+  display: flex;
+  width: 100%;
+  font-size: 15px;
+  justify-content: center;
+  background-color: white;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+
+}
+
+.imagen{
+  margin: 5px auto;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  border-radius: 25px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgb(126, 123, 123) !important;
+  background-color: white;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.imagen:hover{
+  margin: 5px auto;
+  box-shadow: 0 0 10px rgb(0, 0, 0) !important;
+  opacity: 1;
+}
+.imagen:active{
+  margin: 5px auto;
+  box-shadow: 0 0 10px rgb(0, 0, 0) !important;
+  opacity: 1;
+}
+
+
+.btn-comenzar{
+  width: 500px;
+  height: 100px;
+  background-color: rgba(255, 2, 2, 0.774);
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 40px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 15px rgb(112, 112, 112);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-comenzar:active{
+  background-color: rgba(240, 11, 11, 0.774);
+  box-shadow: 0 9px rgb(39, 39, 39);
+  transform: translateY(4px);
+}
+
+.btn-comenzar:hover{
+  background-color: rgba(240, 11, 11, 0.774);
+}

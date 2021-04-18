@@ -6,10 +6,36 @@
     <mat-spinner class="spinner"></mat-spinner>
   </div>
 
-  <div *ngIf="!this.loading">
-    <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
-    <div>
+  <div *ngIf="!this.loading" class="div-container">
+    <div class="card-q" *ngIf="eligio && comenzo">
+      <div class="boton-container">
+        <img class="imagen" (click)="comenzar()" id="uno">
 
+        <img class="imagen" (click)="comenzar()" id="dos">
+
+        <img class="imagen"(click)="comenzar()" id="tres">
+      </div>
+      <div class="boton-container">
+        <img class="imagen" (click)="comenzar()" id="cuatro">
+
+        <img class="imagen" (click)="comenzar()" id="cinco">
+
+        <img class="imagen" (click)="comenzar()" id="seis">
+      </div>
+      <div class="boton-container">
+        <img class="imagen" (click)="comenzar()" id="siete">
+
+        <img class="imagen"  (click)="comenzar()" id="ocho">
+
+        <img class="imagen"(click)="comenzar()" id="nueve">
+      </div>
     </div>
+    <span *ngIf="comenzo && !eligio" class="encabezado tipografia">Seleccione una opcion</span>
+    <div *ngIf="comenzo && !eligio" class="eleccion-container">
+      <img class="eleccion" src="../../../../../assets/tateti/c.png" (click)="eligio=true">
+      <img class="eleccion" src="../../../../../assets/tateti/x.png" (click)="eligio=true">
+    </div>
+    <button *ngIf="!comenzo" class="btn-comenzar" (click)="comenzar()"> COMENZAR A JUGAR</button>
+    <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
   </div>
 </div>
