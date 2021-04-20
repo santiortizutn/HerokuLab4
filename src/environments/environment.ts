@@ -16,6 +16,7 @@ export const environment = {
   },
 
   hostFirebase:'https://saladejuegos-94f77-default-rtdb.firebaseio.com/'
+
 };
 
 /*

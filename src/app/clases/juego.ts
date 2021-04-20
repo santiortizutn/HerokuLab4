@@ -1,23 +1,18 @@
-export abstract class Juego {
+export class Juego {
 
-  public nombre = 'Sin Nombre';
-  public jugador: string;
-  public idJugador: string;
-  public gano = false;
+  nombre;
+  jugador: string;
+  idJugador: string;
+  resultado = false;
 
-  constructor(nombre: string, jugador:string, idJugador:string, gano?: boolean) {
+  constructor(nombre: string, jugador:string, idJugador:string, resultado?: boolean) {
 
       this.nombre = nombre;
       this.jugador = jugador;
       this.idJugador  = idJugador;
-      if (gano) this.gano = gano;
+      if (resultado) this.resultado = resultado;
 
   }
 
-  public abstract verificar():boolean;
 
-  public retornarAyuda() {
-
-    return "NO hay Ayuda definida";
-  }
 }

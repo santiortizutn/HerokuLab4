@@ -6,29 +6,60 @@
     <mat-spinner class="spinner"></mat-spinner>
   </div>
 
-  <div *ngIf="!this.loading">
-    <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
-    <div class="div-cont">
-      <div class="card-q" >
-        <button mat-raised-button class="buton {{this.arrayFinal[0]}}"></button>
-        <button mat-raised-button class="buton {{this.arrayFinal[1]}}"></button>
-        <button mat-raised-button class="buton {{this.arrayFinal[2]}}"></button>
-        <button mat-raised-button class="buton {{this.arrayFinal[3]}}"></button>
+  <div *ngIf="!this.loading" class="div-container">
+
+    <div class="card-container" *ngIf="comenzo">
+      <div class="card" >
+        <button mat-raised-button class="btn" *ngIf="dadovuelta" style="background-image: url('{{this.botones[0]}}'); background-size: cover;"
+        (click)="this.dadovuelta = false" value="kjbuyv" #btn0> dgsd</button>
+        <button mat-raised-button class="btn" *ngIf="!dadovuelta" (click)="this.dadovuelta = true"></button>
+
+        <button mat-raised-button class="btn" *ngIf="dadovuelta" style="background-image: url('{{this.botones[1]}}'); background-size: cover;"
+        (click)="this.dadovuelta = false"></button>
+        <button mat-raised-button class="btn" *ngIf="!dadovuelta" (click)="this.dadovuelta = true"></button>
+
+        <button mat-raised-button class="btn" *ngIf="dadovuelta" style="background-image: url('{{this.botones[2]}}'); background-size: cover;"
+        (click)="this.dadovuelta = false"></button>
+        <button mat-raised-button class="btn" *ngIf="!dadovuelta" (click)="this.dadovuelta = true"></button>
+
+        <button mat-raised-button class="btn" *ngIf="dadovuelta" style="background-image: url('{{this.botones[3]}}'); background-size: cover;"
+        (click)="this.dadovuelta = false"></button>
+        <button mat-raised-button class="btn" *ngIf="!dadovuelta" (click)="this.dadovuelta = true"></button>
       </div>
-      <div class="card-w">
-        <button mat-raised-button class="buton {{this.arrayFinal[4]}}"></button>
-        <button mat-raised-button class="buton {{this.arrayFinal[5]}}"></button>
-        <button mat-raised-button class="buton {{this.arrayFinal[6]}}"></button>
-        <button mat-raised-button class="buton {{this.arrayFinal[7]}}"></button>
+      <div class="card">
+        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[4]}}'); background-size: cover;"></button>
+        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[5]}}'); background-size: cover;"></button>
+        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[6]}}'); background-size: cover;"></button>
+        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[7]}}'); background-size: cover;"></button>
       </div>
-      <div class="card-e" >
-        <button mat-raised-button class="buton {{this.arrayFinal[8]}}"></button>
-        <button mat-raised-button class="buton {{this.arrayFinal[9]}}"></button>
-        <button mat-raised-button class="buton {{this.arrayFinal[10]}}"></button>
-        <button mat-raised-button class="buton {{this.arrayFinal[11]}}"></button>
+      <div class="card">
+        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[8]}}'); background-size: cover;"></button>
+        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[9]}}'); background-size: cover;"></button>
+        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[10]}}'); background-size: cover;"></button>
+        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[11]}}'); background-size: cover;"></button>
       </div>
     </div>
+
+
+
+
+
+
+    <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
+    <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
 
