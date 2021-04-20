@@ -9,33 +9,41 @@
   <div *ngIf="!this.loading" class="div-container">
     <div class="card-q" *ngIf="eligio && comenzo">
       <div class="boton-container">
-        <img class="imagen" (click)="comenzar()" id="uno">
+        <button mat-raised-button class="imagen" (click)="modificar(0)" [disabled]="this.disabled" >
+          <img  width="100%" id="celda0" background-color="transparent"></button>
 
-        <img class="imagen" (click)="comenzar()" id="dos">
+        <button mat-raised-button class="imagen" (click)="modificar(1)" [disabled]="this.disabled" >
+          <img  width="100%" id="celda1" background-color="transparent"></button>
 
-        <img class="imagen"(click)="comenzar()" id="tres">
+        <button mat-raised-button class="imagen" (click)="modificar(2)" [disabled]="this.disabled" >
+          <img  width="100%" id="celda2" background-color="transparent"></button>
+
       </div>
       <div class="boton-container">
-        <img class="imagen" (click)="comenzar()" id="cuatro">
+        <button mat-raised-button class="imagen" (click)="modificar(3)" [disabled]="this.disabled" >
+          <img  width="100%" id="celda3" background-color="transparent"></button>
+        <button mat-raised-button class="imagen" (click)="modificar(4)" [disabled]="this.disabled" >
+          <img  width="100%" id="celda4" background-color="transparent"></button>
+        <button mat-raised-button class="imagen" (click)="modificar(5)" [disabled]="this.disabled" >
+          <img  width="100%" id="celda5" background-color="transparent"></button>
 
-        <img class="imagen" (click)="comenzar()" id="cinco">
-
-        <img class="imagen" (click)="comenzar()" id="seis">
       </div>
       <div class="boton-container">
-        <img class="imagen" (click)="comenzar()" id="siete">
+        <button mat-raised-button class="imagen" (click)="modificar(6)" [disabled]="this.disabled" >
+          <img  width="100%" id="celda6" background-color="transparent"></button>
+        <button mat-raised-button class="imagen" (click)="modificar(7)" [disabled]="this.disabled" >
+          <img  width="100%" id="celda7" background-color="transparent"></button>
+        <button mat-raised-button class="imagen" (click)="modificar(8)" [disabled]="this.disabled" >
+          <img  width="100%" id="celda8" background-color="transparent"></button>
 
-        <img class="imagen"  (click)="comenzar()" id="ocho">
-
-        <img class="imagen"(click)="comenzar()" id="nueve">
       </div>
     </div>
     <span *ngIf="comenzo && !eligio" class="encabezado tipografia">Seleccione una opcion</span>
     <div *ngIf="comenzo && !eligio" class="eleccion-container">
-      <img class="eleccion" src="../../../../../assets/tateti/c.png" (click)="eligio=true">
-      <img class="eleccion" src="../../../../../assets/tateti/x.png" (click)="eligio=true">
+      <img class="eleccion" src="../../../../../assets/tateti/c.png" (click)="eleccion('o')">
+      <img class="eleccion" src="../../../../../assets/tateti/x.png" (click)="eleccion('x')">
     </div>
-    <button *ngIf="!comenzo" class="btn-comenzar" (click)="comenzar()"> COMENZAR A JUGAR</button>
+    <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
     <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
   </div>
 </div>

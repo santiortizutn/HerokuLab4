@@ -46,7 +46,7 @@ export class PiedrapapeltijeraComponent implements OnInit {
         console.log(this.usuarioActual);
       }else{
         this.logueado = false;
-        // this.router.navigate(['/']);
+        this.router.navigate(['/']);
       }
     })
   }

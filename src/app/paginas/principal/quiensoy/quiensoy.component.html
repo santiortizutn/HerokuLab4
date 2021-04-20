@@ -5,7 +5,7 @@
   <div class="spinner-container" *ngIf="this.loading">
     <mat-spinner class="spinner"></mat-spinner>
   </div>
-  <div *ngIf="!this.loading" class="div-container hvr-glow">
+  <div *ngIf="!this.loading" class="div-container">
     <mat-card class="card-q">
       <mat-card-content>
           <img mat-card-image class="yo-icon" src="../../../assets/yo.jpg">
@@ -21,10 +21,12 @@
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title class="tipografia">
-                  INFORMACIÓN DEL JUEGO
+                  INFORMACIÓN DEL JUEGO PROPIO
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <p>El juego consiste en un juego.</p>
+              <p>Dados21 es similar al BlackJack pero con dados. El mismo consiste en acumular 21 o acercarse lo maximo posible,
+                 en un maximo de 3 turnos. Si se acumula igual o menor numero que la maquina, el juego se da por perdido. Por lo tanto,
+                solo se puede ganar o perder, no hay empate.</p>
             </mat-expansion-panel>
             <mat-expansion-panel>
               <mat-expansion-panel-header>

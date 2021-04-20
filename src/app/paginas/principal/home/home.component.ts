@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
       this.auth.logOut().then( resp =>{
         this.logueado = false;
         console.log("respuestaa ", resp);
-        this.snackBar.open("Hasta pronto!! ", "",{duration:1000});
+        this.snackBar.open("Hasta pronto "+this.usuarioActual+" 😪", "",{duration:1500});
         this.router.navigate(["/"]);
       });
     }
