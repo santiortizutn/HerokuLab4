@@ -5,49 +5,19 @@
   <div class="spinner-container" *ngIf="this.loading">
     <mat-spinner class="spinner"></mat-spinner>
   </div>
+  <div class="container mt-5 hoja">
+    <h3 class="mb-2">Intentos  de 14 totales</h3>
+    <div class="row mb-2 auxMt">
+        <div class="col-3" *ngFor="let item of tarjetas;" id="wrapper">
 
-  <div *ngIf="!this.loading" class="div-container">
+            <!-- <p>idUnico: {{item.idUnico}}</p> -->
 
-    <div class="card-container" *ngIf="comenzo">
-      <div class="card" >
-        <button mat-raised-button class="btn" *ngIf="dadovuelta" style="background-image: url('{{this.botones[0]}}'); background-size: cover;"
-        (click)="this.dadovuelta = false" value="kjbuyv" #btn0> dgsd</button>
-        <button mat-raised-button class="btn" *ngIf="!dadovuelta" (click)="this.dadovuelta = true"></button>
-
-        <button mat-raised-button class="btn" *ngIf="dadovuelta" style="background-image: url('{{this.botones[1]}}'); background-size: cover;"
-        (click)="this.dadovuelta = false"></button>
-        <button mat-raised-button class="btn" *ngIf="!dadovuelta" (click)="this.dadovuelta = true"></button>
-
-        <button mat-raised-button class="btn" *ngIf="dadovuelta" style="background-image: url('{{this.botones[2]}}'); background-size: cover;"
-        (click)="this.dadovuelta = false"></button>
-        <button mat-raised-button class="btn" *ngIf="!dadovuelta" (click)="this.dadovuelta = true"></button>
-
-        <button mat-raised-button class="btn" *ngIf="dadovuelta" style="background-image: url('{{this.botones[3]}}'); background-size: cover;"
-        (click)="this.dadovuelta = false"></button>
-        <button mat-raised-button class="btn" *ngIf="!dadovuelta" (click)="this.dadovuelta = true"></button>
-      </div>
-      <div class="card">
-        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[4]}}'); background-size: cover;"></button>
-        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[5]}}'); background-size: cover;"></button>
-        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[6]}}'); background-size: cover;"></button>
-        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[7]}}'); background-size: cover;"></button>
-      </div>
-      <div class="card">
-        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[8]}}'); background-size: cover;"></button>
-        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[9]}}'); background-size: cover;"></button>
-        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[10]}}'); background-size: cover;"></button>
-        <button mat-raised-button class="btn" style="background-image: url('{{this.botones[11]}}'); background-size: cover;"></button>
-      </div>
+            <img src="{{item.imagen}}" class="disenio bloque" alt="" id="{{item.idHtml}}" (click)="seleccionar(item.idHtml)">
+        </div>
     </div>
+</div>
 
 
-
-
-
-
-    <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
-    <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
-  </div>
 
 
 
@@ -63,3 +33,14 @@
 
 </div>
 
+<!--<div *ngIf="!this.loading" class="div-container">
+
+    <div class="card-container" *ngIf="comenzo">
+      <div class="card" *ngFor="let item of tarjetas;">
+        <img src="{{item.imagen}}" class="disenio bloque" alt="" id="{{item.idHtml}}">
+    </div>
+
+    </div>
+      <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
+      <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
+  </div>-->

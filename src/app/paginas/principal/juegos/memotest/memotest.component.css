@@ -40,6 +40,30 @@
   }
 }
 
+.disenio{
+  border: 4px solid black;
+  margin-right: 3px;
+  margin-top: 3px;
+  height: 200px;
+  width: 200px;
+}
+
+.encontrada{
+  border: 6px solid rgb(38, 209, 38);
+  margin-right: 3px;
+  margin-top: 3px;
+  height: 200px;
+  width: 200px;
+}
+.bloque{
+  height: 200px;
+  width: 200px;
+  background-color: red !important;
+  background-color: rgba(0,0,0,0.8)!important;
+  z-index: -9;
+  filter:brightness(0);
+}
+
 .btn{
   height: 150px;
   width: 150px;

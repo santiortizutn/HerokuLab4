@@ -1,7 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { PokemonService } from 'src/app/servicios/pokemon.service';
 import { StorageService } from 'src/app/servicios/storage.service';
+import Swal from 'sweetalert2';
+import { Tarjeta } from './tarjeta';
 
 @Component({
   selector: 'app-memotest',
@@ -10,22 +13,25 @@ import { StorageService } from 'src/app/servicios/storage.service';
 })
 export class MemotestComponent implements OnInit {
 
-  @ViewChild('btn') private btn!: ElementRef;
   loading:Boolean = false;
-
-  array1:Array<string> = [];
-  array2:Array<string> = [];
-  arrayFinal:Array<string> = [];
   juegoActual:string = "Memotest";
   usuarioActual:string = "";
   logueado:boolean = false;
+  // para el juego
   comenzo : boolean = false;
-  dadovuelta : boolean = false;
-  opciones = ["ensalada", "hamburguesa", "nachos", "papas", "pizza", "pancho"];
-  botones = ["", "", "", "", "", "", "", "", "", "", "", ""];
+  intentos = 16;
+  tarjetas : Array<Tarjeta> = [];
+  arraIndices = ['1', '10', '19', '28', '39', '55', '89', '123', '139', '150', '169', '233', '254', '270', '308', '336', '340', '348', '401', '600'];
+  idHtml = 10;
+  value = 0
+  indice1 = "";
+  indice2 = "";
+  idValue1 = "";
+  idValue2 = "";
+  flag = false;
 
-  constructor(private fireAuth:AngularFireAuth, private router: Router, private storageService: StorageService,
-    private el : ElementRef) {}
+
+  constructor(private fireAuth:AngularFireAuth, private router: Router, private pokes: PokemonService) {}
 
   ngOnInit(): void {
     this.loading = true;
@@ -43,99 +49,149 @@ export class MemotestComponent implements OnInit {
         this.logueado = false;
        // this.router.navigate(["/"]);
       }
-    })
+    });
 
-    this.array1 = this.generarArrays();
-    this.array2 = this.generarArrays();
-    this.arrayFinal = this.array1.concat(this.array2).map(String);
-    console.log(this.arrayFinal);
-    this.generar();
+    let array = this.randomizarIndices();
+    array.forEach(index =>{
+      console.log(index);
+      this.pokes.traerPorId(index).then((poke : any) =>{
+        let tarj = new Tarjeta(poke.sprites.front_default, poke.id, Math.floor(Math.random() * 100), this.idHtml++, this.value);
+        this.tarjetas.push(tarj);
+        var tarj2: Tarjeta = JSON.parse(JSON.stringify(tarj))
+        tarj2.posicion = Math.floor(Math.random() * 100)
+        tarj2.idHtml = this.idHtml++;
+        this.tarjetas.push(tarj2);
 
-
-    console.log("A vER: " + this.btn.nativeElement.value);
-
-
+        this.value++;
+        this.tarjetas = this.tarjetas.sort((a: any, b: any) => { if (a.posicion > b.posicion) { return 1 } return -1 });
+      });
+    });
   }
 
 
+  randomizarIndices() {
 
- darVuelta(){
-   this.dadovuelta = true;
- }
+    let array: string[] = [];
+    for (let index = 0; index < 8; index++) {
 
-  generarArrays(){
-    let array:Array<string> = [];
-    let cantidad = 6
-    let index = 0;
-    let repetido = false;
-    let random = "";
+      let aux = this.arraIndices[Math.floor(Math.random() * this.arraIndices.length)];
+      array.push(aux);
 
-    while(index < cantidad) {
-
-      random = this.opciones[Math.floor(Math.random() * this.opciones.length)];
-      repetido = false;
-
-      while (!repetido) {
-
-        for (let i = 0; i < index; i++) {
-
-          if (random == array[i]) {
-            repetido = true;
-            break;
-          }
-        }
-        if (!repetido) {
-          array.push(random);
-          index++;
-        }
-
+      let index = this.arraIndices.indexOf(aux);
+      if (index > -1) {
+        this.arraIndices.splice(index, 1);
       }
-
     }
     return array;
   }
 
-  generar(){
-    for (let i = 0; i < this.arrayFinal.length; i++) {
+  seleccionar(item: any) {
+    let img = document.getElementById(item.idHtml);
+    let auxClases = img?.className;
 
-      switch (this.arrayFinal[i]) {
-        case "ensalada":
-          this.storageService.obtenerImagen("ensalada").then((url: any) =>{
-            this.botones[i] = url;
-           });
-          break;
-        case "pancho":
-          this.storageService.obtenerImagen("pancho").then((url: any) =>{
-            this.botones[i] = url;
-           });
-          break;
-        case "hamburguesa":
-          this.storageService.obtenerImagen("hamburguesa").then((url: any) =>{
-            this.botones[i] = url;
-           });
-          break;
-        case "papas":
-          this.storageService.obtenerImagen("papas").then((url: any) =>{
-            this.botones[i] = url;
-           });
-          break;
-        case "nachos":
-          this.storageService.obtenerImagen("nachos").then((url: any) =>{
-            this.botones[i] = url;
-           });
-          break;
-        case "pizza":
-          this.storageService.obtenerImagen("pizza").then((url: any) =>{
-            this.botones[i] = url;
-           });
-          break;
-        default:
-          break;
+    if (!auxClases?.includes("encontrada")) {
+
+      if (this.indice1 == "" && this.indice2 == "") {
+
+        this.mostrarTarjeta(item.idHtml.toString());
+        this.indice1 = item.idHTml;
+        this.idValue1 = item.value;
       }
 
+      if (this.indice2 == "" && this.indice1 != "") {
+
+        this.mostrarTarjeta(item.idHtml.toString());
+        this.indice2 = item.idHTml;
+        this.idValue2 = item.value;
+        this.flag = true;;
+      }
+
+      if (this.flag) {
+        this.flag = false;
+        this.controlarTarjetas();
+      }
+    }
+  }
+
+  coninciden() {
+    let img1 = document.getElementById(this.indice1);
+    img1?.classList.add('class', "encontrada");
+    let img2 = document.getElementById(this.indice2);
+    img2?.classList.add('class', "encontrada");
+  }
+
+  mostrarTarjeta(idHtml: string) {
+    let img = document.getElementById(idHtml);
+    img?.classList.remove("bloque");
+  }
+
+  ocultarTarjetas() {
+    let img1 = document.getElementById(this.indice1);
+    img1?.classList.add('class', "bloque");
+    let img2 = document.getElementById(this.indice2);
+    img2?.classList.add('class', "bloque");
+  }
+
+  controlarTarjetas() {
+    setTimeout(() => {
+      if (this.idValue1 == this.idValue2) {
+        console.log("coinciden");
+        this.coninciden();
+        this.reiniciar();
+      } else {
+        this.ocultarTarjetas();
+        this.reiniciar();
+      }
+      this.controlIntentos();
+      this.intentos--;
+    }, 1000);
+  }
+
+  controlIntentos() {
+    if (this.intentos == 1) {
+      this.mostrarMensaje("perdio");
+    }
+    else {
+      let auxImg;
+      let flag = true;
+      this.tarjetas.forEach(item => {
+        let img = document.getElementById(item.idHtml.toString());
+        auxImg = img?.className;
+        if (!auxImg?.includes("encontrada")) {
+          flag = false;
+        }
+      });
+      if(flag == true){
+        this.mostrarMensaje("gano");
+      }
     }
 
-    console.log("ARRAY FINAL: ", this.arrayFinal);
+  }
+
+  mostrarMensaje(aux: string) {
+    if (aux == "perdio") {
+      Swal.fire({
+        icon:'error',
+        title: 'Perdiste, volve a intentar!',
+        showConfirmButton: true,
+        timer:2000
+      })
+    }
+    if (aux == "gano") {
+      Swal.fire({
+        icon:'success',
+        title: 'Felicidades, ganaste!',
+        showConfirmButton: true,
+        timer:2000
+      })
+    }
+  }
+
+  reiniciar() {
+    this.indice1 = "";
+    this.indice2 = "";
+    this.idValue1 = "";
+    this.idValue2 = "";
   }
 
 
