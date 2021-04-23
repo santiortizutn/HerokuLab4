@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class PokemonService {
 
-  host = "http://pokeapi.co/api/v2/pokemon/"
+  host = "https://pokeapi.co/api/v2/pokemon/"
   constructor(private http:HttpClient) { }
 
   traerTodos(){
