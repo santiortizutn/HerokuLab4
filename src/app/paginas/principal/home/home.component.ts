@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
-import Swal  from "sweetalert2";
 
 @Component({
   selector: 'app-home',
@@ -49,10 +48,6 @@ export class HomeComponent implements OnInit {
       });
     }
 
-  }
-
-  juegos(){
-    this.router.navigate(["/juegos"]);
   }
 
 

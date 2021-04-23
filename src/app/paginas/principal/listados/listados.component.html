@@ -1,0 +1,74 @@
+<app-cabecera [componente]="'listados'"></app-cabecera>
+
+<div class="principal">
+  <div class="spinner-container" *ngIf="this.loading">
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
+
+  <div *ngIf="!this.loading" class="div-container">
+    <mat-tab-group mat-stretch-tabs animationDuration="0ms" class="card-container">
+      <mat-tab label="MEMOTEST">
+
+          <div class="cabecera">
+            <span>JUGADOR</span>
+            <Span>RESULTADO</Span>
+            <span>FECHA</span>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="contenedor">
+            <div class="fila" *ngFor="let res of listaMemo">
+              <span>{{res.jugador}}</span>
+              <span>{{res.resultado}}</span>
+              <span>{{res.fecha}}</span>
+            </div>
+          </div>
+      </mat-tab>
+      <mat-tab label="TATETI">
+        <div class="cabecera">
+          <span>JUGADOR</span>
+          <Span>RESULTADO</Span>
+          <span>FECHA</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="contenedor">
+          <div class="fila" *ngFor="let res of listaTtt">
+            <span>{{res.jugador}}</span>
+            <span>{{res.resultado}}</span>
+            <span>{{res.fecha}}</span>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="PIEDRA PAPEL O TIJERA" >
+        <div class="cabecera">
+          <span>JUGADOR</span>
+          <Span>RESULTADO</Span>
+          <span>FECHA</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="contenedor">
+          <div class="fila" *ngFor="let res of listaPpt">
+            <span class="espacio">{{res.jugador}}</span>
+            <span class="espacio">{{res.resultado}}</span>
+            <span class="espacio">{{res.fecha}}</span>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="DADOS21">
+        <div class="cabecera">
+          <span>JUGADOR</span>
+          <Span>RESULTADO</Span>
+          <span>FECHA</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="contenedor">
+          <div class="fila" *ngFor="let res of listaDados">
+            <span>{{res.jugador}}</span>
+            <span>{{res.resultado}}</span>
+            <span>{{res.fecha}}</span>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+</div>

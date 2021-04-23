@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Juego } from 'src/app/clases/juego';
+import { ListadosService } from 'src/app/servicios/listados.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -26,7 +28,7 @@ export class TatetiComponent implements OnInit {
   celdas = ["-", "-", "-", "-", "-", "-", "-", "-", "-"];
   random : number | any  = 0;
 
-  constructor(private fireAuth:AngularFireAuth, private router: Router) { }
+  constructor(private fireAuth:AngularFireAuth, private router: Router, private listadoService : ListadosService) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -88,6 +90,7 @@ export class TatetiComponent implements OnInit {
 
   mostrarResultado(resultado : string | any){
     if (resultado == "gano") {
+      this.listadoService.registrarEnBD(new Juego("tateti",this.usuarioActual,"Gano",new Date().toLocaleString(),new Date().getTime())).subscribe();
         Swal.fire({
           position: 'bottom',
           icon:'success',
@@ -98,6 +101,7 @@ export class TatetiComponent implements OnInit {
           this.celdas = ["-", "-", "-", "-", "-", "-", "-", "-", "-"];});
     }else{
       if (resultado == "perdio") {
+      this.listadoService.registrarEnBD(new Juego("tateti",this.usuarioActual,"Perdio",new Date().toLocaleString(),new Date().getTime())).subscribe();
         Swal.fire({
           position: 'bottom',
           icon:'error',
@@ -108,6 +112,7 @@ export class TatetiComponent implements OnInit {
           this.celdas = ["-", "-", "-", "-", "-", "-", "-", "-", "-"];});
       } else {
         if (resultado == "empate") {
+      this.listadoService.registrarEnBD(new Juego("tateti",this.usuarioActual,"Empato",new Date().toLocaleString(),new Date().getTime())).subscribe();
           Swal.fire({
             position: 'bottom',
             icon:'warning',

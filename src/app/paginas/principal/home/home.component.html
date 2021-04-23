@@ -7,8 +7,8 @@
 
   <div *ngIf="!this.loading" class="div-container">
     <div *ngIf = 'this.logueado' class="card-h">
-        <button class="boton-juegos hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los juegos" (click)="juegos()"></button>
-        <button class="boton-lista hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los listados de puntuaciones"></button>
+        <button class="boton-juegos hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los juegos" [routerLink]="['/juegos']"></button>
+        <button class="boton-lista hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los listados de puntuaciones" [routerLink]="['/principal/listados']"></button>
     </div>
   </div>
 </div>

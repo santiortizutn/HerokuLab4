@@ -19,6 +19,8 @@ import { PiedrapapeltijeraComponent } from './paginas/principal/juegos/piedrapap
 import { TatetiComponent } from './paginas/principal/juegos/tateti/tateti.component';
 import { ChatComponent } from './componentes/chat/chat.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
+import { MensajesService } from './servicios/mensajes.service';
+import { ListadosComponent } from './paginas/principal/listados/listados.component';
 
 //angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -34,6 +36,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTabsModule } from '@angular/material/tabs';
+
 //
 
 //firebase
@@ -43,7 +47,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { MensajesService } from './servicios/mensajes.service';
+
 //
 
 
@@ -60,7 +64,8 @@ import { MensajesService } from './servicios/mensajes.service';
     PiedrapapeltijeraComponent,
     TatetiComponent,
     ChatComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    ListadosComponent
 
   ],
   imports: [
@@ -90,6 +95,7 @@ import { MensajesService } from './servicios/mensajes.service';
     MatGridListModule,
     MatSelectModule,
     MatSidenavModule,
+    MatTabsModule
   ],
   providers: [AuthService, UsuariosService, MensajesService],
   bootstrap: [AppComponent]

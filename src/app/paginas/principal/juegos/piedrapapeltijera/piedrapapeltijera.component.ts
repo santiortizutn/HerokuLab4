@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Juego } from 'src/app/clases/juego';
+import { ListadosService } from 'src/app/servicios/listados.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -30,7 +32,7 @@ export class PiedrapapeltijeraComponent implements OnInit {
   gano : boolean | any;
 
 
-  constructor(private fireAuth:AngularFireAuth, private router: Router) { }
+  constructor(private fireAuth:AngularFireAuth, private router: Router, private listadoService : ListadosService) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -149,6 +151,7 @@ export class PiedrapapeltijeraComponent implements OnInit {
 
   mostrarResultado(resultado : boolean | any){
     if (resultado) {
+      this.listadoService.registrarEnBD(new Juego("ppt",this.usuarioActual,"Gano",new Date().toLocaleString(), new Date().getTime())).subscribe();
         Swal.fire({
           position: 'bottom',
           icon:'success',
@@ -158,6 +161,7 @@ export class PiedrapapeltijeraComponent implements OnInit {
         }).then(()=>{this.comenzar()});
     }else{
       if (resultado == false) {
+      this.listadoService.registrarEnBD(new Juego("ppt",this.usuarioActual,"Perdio",new Date().toLocaleString(),new Date().getTime())).subscribe();
         Swal.fire({
           position: 'bottom',
           icon:'error',
@@ -167,6 +171,7 @@ export class PiedrapapeltijeraComponent implements OnInit {
         }).then(()=>{this.comenzar()});
       } else {
         if (resultado == null) {
+      this.listadoService.registrarEnBD(new Juego("ppt",this.usuarioActual,"Empato",new Date().toLocaleString(), new Date().getTime())).subscribe();
           Swal.fire({
             position: 'bottom',
             icon:'warning',

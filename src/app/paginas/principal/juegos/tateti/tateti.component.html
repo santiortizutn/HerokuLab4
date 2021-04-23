@@ -40,7 +40,7 @@
     </div>
     <span *ngIf="comenzo && !eligio" class="encabezado tipografia">Seleccione una opcion</span>
     <div *ngIf="comenzo && !eligio" class="eleccion-container">
-      <img class="eleccion" src="../../../../../assets/tateti/c.png" (click)="eleccion('o')">
+      <img class="eleccion" src="../../../../../assets/tateti/o.png" (click)="eleccion('o')">
       <img class="eleccion" src="../../../../../assets/tateti/x.png" (click)="eleccion('x')">
     </div>
     <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>

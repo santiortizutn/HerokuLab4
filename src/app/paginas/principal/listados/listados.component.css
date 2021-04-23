@@ -1,0 +1,73 @@
+.div-container {
+  position: absolute;
+  top: 15%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+
+}
+.card-container{
+  margin-top: 20px;
+  width: 100%;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.822);
+  box-shadow: 0 0 10px rgb(122, 122, 122) !important;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  animation: popup 1s;
+}
+
+@keyframes popup {
+  0%{
+    transform: scale(0.8);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+
+
+.cabecera{
+  display: flex;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.fila{
+  display: flex;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  align-items: center;
+
+}
+
+.margen{
+  margin-right: 25px;
+}
+
+.contenedor{
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.contenedor::-webkit-scrollbar {
+  display: none;
+}
+
+span{
+  width: 35%;
+  text-align: center;
+}

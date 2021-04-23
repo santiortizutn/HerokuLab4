@@ -5,42 +5,20 @@
   <div class="spinner-container" *ngIf="this.loading">
     <mat-spinner class="spinner"></mat-spinner>
   </div>
-  <div class="container mt-5 hoja">
-    <h3 class="mb-2">Intentos  de 14 totales</h3>
-    <div class="row mb-2 auxMt">
-        <div class="col-3" *ngFor="let item of tarjetas;" id="wrapper">
 
-            <!-- <p>idUnico: {{item.idUnico}}</p> -->
-
-            <img src="{{item.imagen}}" class="disenio bloque" alt="" id="{{item.idHtml}}" (click)="seleccionar(item.idHtml)">
-        </div>
+  <div *ngIf="!this.loading" class="div-container">
+    <div class="card-container row" *ngIf="comenzo">
+      <div class="col-3" *ngFor="let item of tarjetas;">
+        <img src="{{item.imagen}}" class="tarjeta bloque" alt="" id="{{item.idHtml}}" (click)="seleccionar(item)">
+        <br>
+      </div>
     </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-<!--<div *ngIf="!this.loading" class="div-container">
-
-    <div class="card-container" *ngIf="comenzo">
-      <div class="card" *ngFor="let item of tarjetas;">
-        <img src="{{item.imagen}}" class="disenio bloque" alt="" id="{{item.idHtml}}">
-    </div>
-
-    </div>
+    <span *ngIf="comenzo" class="encabezado tipografia">Te quedan {{movimientos}} movimientos restantes.</span>
       <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
       <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
-  </div>-->
+  </div>
+
+
+
+</div>
+

@@ -1,8 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Juego } from 'src/app/clases/juego';
+import { ListadosService } from 'src/app/servicios/listados.service';
 import { PokemonService } from 'src/app/servicios/pokemon.service';
-import { StorageService } from 'src/app/servicios/storage.service';
 import Swal from 'sweetalert2';
 import { Tarjeta } from './tarjeta';
 
@@ -19,9 +20,11 @@ export class MemotestComponent implements OnInit {
   logueado:boolean = false;
   // para el juego
   comenzo : boolean = false;
-  intentos = 16;
+  movimientos = 18;
   tarjetas : Array<Tarjeta> = [];
-  arraIndices = ['1', '10', '19', '28', '39', '55', '89', '123', '139', '150', '169', '233', '254', '270', '308', '336', '340', '348', '401', '600'];
+  arraIndices = ['1', '10', '19', '28', '39', '55', '89', '123', '139', '150', '169', '233', '254',
+                 '270', '281', '288', '293', '308', '336', '340', '348', '354', '401', '412', '426',
+                 '435', '451', '467', '501', '513', '526', '533', '548', '570', '582', '600', '629'];
   idHtml = 10;
   value = 0
   indice1 = "";
@@ -31,7 +34,7 @@ export class MemotestComponent implements OnInit {
   flag = false;
 
 
-  constructor(private fireAuth:AngularFireAuth, private router: Router, private pokes: PokemonService) {}
+  constructor(private fireAuth:AngularFireAuth, private router: Router, private pokes: PokemonService, private listadoService: ListadosService) {}
 
   ngOnInit(): void {
     this.loading = true;
@@ -47,7 +50,7 @@ export class MemotestComponent implements OnInit {
         console.log(this.usuarioActual);
       }else{
         this.logueado = false;
-       // this.router.navigate(["/"]);
+        this.router.navigate(["/"]);
       }
     });
 
@@ -86,27 +89,35 @@ export class MemotestComponent implements OnInit {
   }
 
   seleccionar(item: any) {
-    let img = document.getElementById(item.idHtml);
-    let auxClases = img?.className;
-
+    var img = document.getElementById(item.idHtml);
+    var auxClases = img?.className;
+    var id = item.idHtml.toString();
+    console.log("indices1y2: ", this.indice1 + "-" + this.indice2);
     if (!auxClases?.includes("encontrada")) {
 
-      if (this.indice1 == "" && this.indice2 == "") {
-
-        this.mostrarTarjeta(item.idHtml.toString());
-        this.indice1 = item.idHTml;
-        this.idValue1 = item.value;
-      }
-
       if (this.indice2 == "" && this.indice1 != "") {
-
-        this.mostrarTarjeta(item.idHtml.toString());
-        this.indice2 = item.idHTml;
+        console.log("entro c2");
+        this.mostrarTarjeta(id);
+        this.indice2 = id;
+        console.log("idHTml: ", this.indice2);
         this.idValue2 = item.value;
-        this.flag = true;;
+        console.log("idValue: ", this.idValue2);
+        this.flag = true;
       }
 
-      if (this.flag) {
+      if (this.indice1 == "" && this.indice2 == "") {
+        console.log("entro c1");
+        this.mostrarTarjeta(id);
+        this.indice1 = id;
+        console.log("idHTml: ", this.indice1);
+        this.idValue1 = item.value;
+        console.log("idValue: ", this.idValue1);
+      }
+
+
+
+      if (this.flag == true) {
+        console.log("revisa");
         this.flag = false;
         this.controlarTarjetas();
       }
@@ -135,20 +146,22 @@ export class MemotestComponent implements OnInit {
   controlarTarjetas() {
     setTimeout(() => {
       if (this.idValue1 == this.idValue2) {
-        console.log("coinciden");
         this.coninciden();
         this.reiniciar();
       } else {
         this.ocultarTarjetas();
         this.reiniciar();
       }
-      this.controlIntentos();
-      this.intentos--;
+
+      this.controlMovimientos();
+      this.movimientos--;
+
     }, 1000);
   }
 
-  controlIntentos() {
-    if (this.intentos == 1) {
+  controlMovimientos() {
+
+    if (this.movimientos == 0) {
       this.mostrarMensaje("perdio");
     }
     else {
@@ -170,20 +183,22 @@ export class MemotestComponent implements OnInit {
 
   mostrarMensaje(aux: string) {
     if (aux == "perdio") {
+      this.listadoService.registrarEnBD(new Juego("memotest",this.usuarioActual,"Perdio",new Date().toLocaleString(),new Date().getTime())).subscribe();
       Swal.fire({
         icon:'error',
         title: 'Perdiste, volve a intentar!',
-        showConfirmButton: true,
-        timer:2000
-      })
+        showConfirmButton: true
+      }).then(()=>{this.router.navigateByUrl('/juegos', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/juegos/memo'])})});
     }
     if (aux == "gano") {
+      this.listadoService.registrarEnBD(new Juego("memotest",this.usuarioActual,"Gano",new Date().toLocaleString(),new Date().getTime())).subscribe();
       Swal.fire({
         icon:'success',
         title: 'Felicidades, ganaste!',
-        showConfirmButton: true,
-        timer:2000
-      })
+        showConfirmButton: true
+      }).then(()=>{this.router.navigateByUrl('/juegos', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/juegos/memo'])})});
     }
   }
 
