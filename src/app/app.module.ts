@@ -47,6 +47,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { Dados21Component } from './paginas/principal/juegos/dados21/dados21.component';
 
 //
 
@@ -65,7 +66,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     TatetiComponent,
     ChatComponent,
     CabeceraComponent,
-    ListadosComponent
+    ListadosComponent,
+    Dados21Component
 
   ],
   imports: [

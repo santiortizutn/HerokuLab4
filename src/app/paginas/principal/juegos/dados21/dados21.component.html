@@ -1,0 +1,21 @@
+<app-cabecera [componente]="'juego'"></app-cabecera>
+
+<div class="principal">
+  <div class="spinner-container" *ngIf="this.loading">
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
+
+  <div *ngIf="!this.loading" class="div-container">
+    <div class="card-container" *ngIf="comenzo">
+      <span class="tipografia">ACUMULADO: {{acumulado}}</span>
+      <div>
+        <img class="dados" src="../../../../../assets/dados21/{{dado1}}.png" alt="">
+        <img class="dados" src="../../../../../assets/dados21/{{dado2}}.png" alt="">
+      </div>
+      <button mat-raised-button class="btn-tirar tipografia" (click)="tirarDados()">TIRAR DADOS</button>
+      <button mat-raised-button class="btn-plantarse tipografia" [disabled]="tiros == 0" (click)="calcularResultado()">PLANTARSE</button>
+    </div>
+    <button *ngIf="!comenzo" class="btn-comenzar" (click)="comenzo = true"> COMENZAR A JUGAR</button>
+    <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
+  </div>
+</div>

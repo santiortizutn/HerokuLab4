@@ -11,7 +11,7 @@
   margin-top: 20px;
   width: 100%;
   max-width: 900px;
-  background-color: rgba(255, 255, 255, 0.822);
+  background-color: rgba(255, 255, 255, 0.959);
   box-shadow: 0 0 10px rgb(122, 122, 122) !important;
   border-radius: 5px;
   display: flex;
@@ -31,7 +31,9 @@
   }
 }
 
-
+mat-tab{
+  background-color: brown !important;
+}
 
 .cabecera{
   display: flex;
@@ -42,6 +44,7 @@
   align-items: center;
   justify-content: space-between;
   font-weight: 500;
+  background-color: rgb(206, 206, 206);
 }
 
 .fila{
@@ -51,7 +54,7 @@
   padding-right: 20px;
   width: 100%;
   align-items: center;
-
+  border-top: 1px solid black;
 }
 
 .margen{
