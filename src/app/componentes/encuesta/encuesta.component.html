@@ -1,0 +1,72 @@
+<button mat-icon-button class="encuesta-btn">
+  <mat-icon>list_alt</mat-icon>
+</button>
+
+<div class="encuesta-popup">
+
+  <form [formGroup]="formGroup" (ngSubmit)="aceptar()">
+    <span class="tipografia">ENCUESTA DE SATISFACCIÓN</span>
+    <mat-divider></mat-divider>
+
+
+    <div class="div-form">
+      <br>
+        <mat-label for="nombre">Nombre</mat-label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre">
+        <small class="invalid" *ngIf="formGroup.get('nombre')?.errors?.required && formGroup.get('nombre')?.touched">El nombre es requerido</small>
+        <small class="invalid" *ngIf="formGroup.get('nombre')?.errors?.contieneEspacios && formGroup.get('nombre')?.touched">El nombre no puede tener espacios</small>
+
+        <br>
+        <mat-label for="apellido">Apellido</mat-label>
+        <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" formControlName="apellido">
+        <small class="invalid" *ngIf="formGroup.get('apellido')?.errors?.required && formGroup.get('apellido')?.touched">El apellido es requerido</small>
+        <small class="invalid" *ngIf="formGroup.get('apellido')?.errors?.contieneEspacios && formGroup.get('apellido')?.touched">El apellido no puede tener espacios</small>
+      <br>
+      <div style="display: flex;">
+        <div style="width: 50%; padding-right: 5px;">
+          <mat-label for="edad">Edad</mat-label>
+          <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+          <small class="invalid" *ngIf="formGroup.get('edad')?.errors?.min || formGroup.get('edad')?.errors?.max && formGroup.get('edad')?.touched">La edad debe ser entre 18 y 99 años</small>
+          <small class="invalid" *ngIf="formGroup.get('edad')?.errors?.required && formGroup.get('edad')?.touched">La edad es requerida</small>
+        </div>
+
+          <div style="width: 50%;">
+            <mat-label for="telefono">Telefono</mat-label>
+            <input type="text" class="form-control" id="telefono" placeholder="Ingrese telefono" formControlName="telefono">
+            <small class="invalid" *ngIf="!formGroup.get('telefono')?.errors?.contieneLetras && formGroup.get('telefono')?.errors?.mayorADiez">El telefono no puede tener mas de 10 numeros</small>
+            <small class="invalid" *ngIf="!formGroup.get('telefono')?.errors?.required && formGroup.get('telefono')?.errors?.contieneLetras && formGroup.get('telefono')?.touched">El telefono solo puede tener numeros</small>
+            <small class="invalid" *ngIf="formGroup.get('telefono')?.errors?.required && formGroup.get('telefono')?.touched">El telefono es requerido</small>
+          </div>
+      </div>
+      <br>
+      <mat-label for="juegos">Calidad de los juegos</mat-label>
+      <div class="calificar">
+        <input type="radio" name="star1" id="star1"><mat-icon>star</mat-icon>
+        <input type="radio" name="star2" id="star2"><mat-icon>star</mat-icon>
+        <input type="radio" name="star3" id="star3"><mat-icon>star</mat-icon>
+        <input type="radio" name="star4" id="star4"><mat-icon>star</mat-icon>
+        <input type="radio" name="star5" id="star5"><mat-icon>star</mat-icon>
+
+      </div>
+
+
+        <br>
+        <mat-label for="telefono">Valoración general</mat-label>
+        <input type="number" class="form-control" id="edad" placeholder="Ingrese telefono" formControlName="edad">
+        <small class="invalid" *ngIf="formGroup.get('edad')?.errors?.min && formGroup.get('edad')?.errors?.max && formGroup.get('edad')?.touched">La edad debe ser entre 18 y 99 años</small>
+        <small class="invalid" *ngIf="formGroup.get('edad')?.errors?.required && formGroup.get('edad')?.touched">La edad es requerida</small>
+        <br>
+
+        <mat-label for="comentario">Comentario</mat-label>
+        <textarea class="form-control" id="comentario" placeholder="Deja un comentario sobre tu experiencia (maximo 120 caracteres)" formControlName="comentario"></textarea>
+        <small class="invalid" *ngIf="formGroup.get('comentario')?.errors?.mayor120">Se admiten hasta 120 caracteres</small>
+        <small class="invalid" *ngIf="formGroup.get('comentario')?.errors?.required && formGroup.get('comentario')?.touched">La edad es requerida</small>
+    </div>
+    <div class="div-boton">
+        <button mat-raised-button class="boton" type="submit">
+          Enviar
+        </button>
+    </div>
+
+  </form>
+</div>

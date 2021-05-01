@@ -1,0 +1,126 @@
+.encuesta-popup{
+  display: none;
+  position: fixed;
+  bottom:100px;
+  right:200px;
+  height: 620px;
+  width: 400px;
+  background-color: rgb(255, 255, 255);
+  /* display: flex; */
+  padding: 0.75rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  border-radius: 10px;
+  animation: popup 0.7s;
+}
+
+.show{
+  display: flex;
+}
+
+@keyframes popup {
+  0%{
+    transform: scale(0.8);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+ .area{
+   max-height: 50px;
+ }
+
+.div-form{
+  padding: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 90%;
+}
+
+form{
+  width: 100%;
+  height: 100%;
+
+}
+
+.div-form::-webkit-scrollbar {
+  display: none;
+}
+
+span{
+  font-size: large;
+  margin: 5px;
+}
+
+.div-boton{
+  width: 100%;
+  padding: 5px;
+}
+.boton{
+  width: 100%;
+  background-color: rgba(212, 0, 0, 0.925);
+  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: large;
+}
+
+mat-label{
+  font-weight: 600;
+}
+
+.calificar{
+  display: flex;
+}
+
+.calificar input{
+  display: none;
+}
+
+.calificar mat-icon{
+  display: block;
+  cursor: pointer;
+  width: 50px;
+  font-size: 40px !important;
+}
+
+.calificar mat-icon:hover,
+.calificar input:checked~mat-icon::after
+{
+
+  opacity: 1;
+  color: red !important;
+}
+
+.invalid {
+  color: rgb(255, 0, 0);
+}
+
+
+.encuesta-btn{
+  position: fixed;
+  right:50px;
+  bottom: 50px;
+  background: rgba(255, 2, 2, 0.774);
+  color: white;
+  width:60px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+}
+
+.encuesta-btn:hover{
+  opacity: 1;
+}
+
+@media (max-width:500px){
+
+  .encuesta-popup{
+      bottom: 120px;
+      right:10%;
+      width: 80vw;
+  }
+}

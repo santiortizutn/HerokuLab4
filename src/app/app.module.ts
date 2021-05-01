@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +48,8 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { Dados21Component } from './paginas/principal/juegos/dados21/dados21.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 //
 
@@ -67,15 +69,18 @@ import { Dados21Component } from './paginas/principal/juegos/dados21/dados21.com
     ChatComponent,
     CabeceraComponent,
     ListadosComponent,
-    Dados21Component
+    Dados21Component,
+    EncuestaComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FontAwesomeModule,
     //firebase
     AngularFireDatabaseModule,
     AngularFireStorageModule,
