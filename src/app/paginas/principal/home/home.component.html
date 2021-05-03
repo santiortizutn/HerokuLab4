@@ -10,7 +10,7 @@
         <button class="boton-juegos hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los juegos" [routerLink]="['/juegos']"></button>
         <button class="boton-lista hvr-glow hvr-pulse" mat-raised-button matTooltip="Accede a los listados de puntuaciones" [routerLink]="['/principal/listados']"></button>
     </div>
-    <app-encuesta></app-encuesta>
+    <app-encuesta [usuario]="usuarioActual"></app-encuesta>
   </div>
 </div>
 

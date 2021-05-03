@@ -39,31 +39,37 @@
           </div>
       </div>
       <br>
-      <mat-label for="juegos">Calidad de los juegos</mat-label>
-      <div class="calificar">
-        <input type="radio" name="star1" id="star1"><mat-icon>star</mat-icon>
-        <input type="radio" name="star2" id="star2"><mat-icon>star</mat-icon>
-        <input type="radio" name="star3" id="star3"><mat-icon>star</mat-icon>
-        <input type="radio" name="star4" id="star4"><mat-icon>star</mat-icon>
-        <input type="radio" name="star5" id="star5"><mat-icon>star</mat-icon>
+        <mat-label for="juegos">Califica tu experiencia general</mat-label>
+      <br>
 
-      </div>
-
-
-        <br>
-        <mat-label for="telefono">Valoración general</mat-label>
-        <input type="number" class="form-control" id="edad" placeholder="Ingrese telefono" formControlName="edad">
-        <small class="invalid" *ngIf="formGroup.get('edad')?.errors?.min && formGroup.get('edad')?.errors?.max && formGroup.get('edad')?.touched">La edad debe ser entre 18 y 99 años</small>
-        <small class="invalid" *ngIf="formGroup.get('edad')?.errors?.required && formGroup.get('edad')?.touched">La edad es requerida</small>
+        <p class="calificar">
+          <input type="radio" name="valoracion" id="emoji1" value="Me encanto" formControlName="valoracion"><label for="emoji1" id="emoji">🤩</label>
+          <input type="radio" name="valoracion" id="emoji2" value="Me gusto" formControlName="valoracion"><label for="emoji2" id="emoji">😁</label>
+          <input type="radio" name="valoracion" id="emoji3" value="Esta ok" formControlName="valoracion"><label for="emoji3" id="emoji">🙂</label>
+          <input type="radio" name="valoracion" id="emoji4" value="Aburrido" formControlName="valoracion"><label for="emoji4" id="emoji">🥱</label>
+          <input type="radio" name="valoracion" id="emoji5" value="Un asco" formControlName="valoracion"><label for="emoji5" id="emoji">🤮</label>
+        </p>
+        <small class="invalid" *ngIf="formGroup.get('valoracion')?.errors?.required && formGroup.get('valoracion')?.touched">
+          La valoracion es requerida</small>
+      <br>
+        <mat-label for="juego">Juego favorito</mat-label>
+          <select class="form-control" formControlName="juego">
+            <option value="">Seleccione uno</option>
+            <option value="memotest">Memotest</option>
+            <option value="ppt">Piedra Papel o Tijera</option>
+            <option value="tateti">TaTeTi</option>
+            <option value="dados21">Dados21</option>
+          </select>
+        <small class="invalid" *ngIf="formGroup.get('juego')?.errors?.required && formGroup.get('juego')?.touched">El juego es requerido</small>
         <br>
 
         <mat-label for="comentario">Comentario</mat-label>
         <textarea class="form-control" id="comentario" placeholder="Deja un comentario sobre tu experiencia (maximo 120 caracteres)" formControlName="comentario"></textarea>
         <small class="invalid" *ngIf="formGroup.get('comentario')?.errors?.mayor120">Se admiten hasta 120 caracteres</small>
-        <small class="invalid" *ngIf="formGroup.get('comentario')?.errors?.required && formGroup.get('comentario')?.touched">La edad es requerida</small>
+        <small class="invalid" *ngIf="formGroup.get('comentario')?.errors?.required && formGroup.get('comentario')?.touched">El comentario es requerido</small>
     </div>
     <div class="div-boton">
-        <button mat-raised-button class="boton" type="submit">
+        <button mat-raised-button class="boton" type="submit" [disabled] ="formGroup.invalid">
           Enviar
         </button>
     </div>

@@ -3,19 +3,23 @@ export class Encuesta {
   apellido : string;
   edad : number;
   telefono : number;
-  valGeneral : string;
-  valJuegos : string;
+  valoracion : string;
+  juegoFav : string;
   comentario : string;
   fecha : string;
+  usuario : string;
 
-  constructor(nombre : string, apellido : string, edad : number, telefono : number, valGeneral : string, valJuegos : string, comentario : string , fecha : string){
+  constructor(nombre : string, apellido : string, edad : number, telefono : number,
+     valoracion : string, juegoFav : string, comentario : string , fecha : string, usuario : string){
+
     this.nombre = nombre;
     this.apellido = apellido;
     this.edad = edad;
     this.telefono = telefono;
-    this.valGeneral = valGeneral;
-    this.valJuegos = valJuegos;
+    this.valoracion = valoracion;
+    this.juegoFav = juegoFav;
     this.comentario = comentario;
     this.fecha = fecha;
+    this.usuario = usuario;
   }
 }

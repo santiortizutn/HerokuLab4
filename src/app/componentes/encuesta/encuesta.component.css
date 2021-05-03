@@ -3,7 +3,7 @@
   position: fixed;
   bottom:100px;
   right:200px;
-  height: 620px;
+  height: 640px;
   width: 400px;
   background-color: rgb(255, 255, 255);
   /* display: flex; */
@@ -16,6 +16,10 @@
 .show{
   display: flex;
 }
+.noShow{
+  display: none;
+}
+
 
 @keyframes popup {
   0%{
@@ -71,27 +75,35 @@ mat-label{
 }
 
 .calificar{
-  display: flex;
-}
+  overflow: hidden;
+  display: inline-block;
+  padding: 10px;
 
-.calificar input{
+}
+.calificar input {
   display: none;
 }
 
-.calificar mat-icon{
-  display: block;
+.calificar label {
+  float: right;
+  opacity: 0.6;
   cursor: pointer;
-  width: 50px;
-  font-size: 40px !important;
 }
 
-.calificar mat-icon:hover,
-.calificar input:checked~mat-icon::after
-{
+#emoji{
+  font-size: 30px;
+  padding: 5px;
+}
 
+.calificar label:hover,
+.calificar label:hover ~ label,
+.calificar input:checked ~ label {
   opacity: 1;
-  color: red !important;
 }
+
+
+
+
 
 .invalid {
   color: rgb(255, 0, 0);

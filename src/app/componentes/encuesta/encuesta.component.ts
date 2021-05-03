@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Encuesta } from 'src/app/clases/encuesta';
+import { EncuestasService } from 'src/app/servicios/encuestas.service';
 
 @Component({
   selector: 'app-encuesta',
@@ -8,17 +11,24 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 })
 export class EncuestaComponent implements OnInit {
 
+  @Input("usuario") usuarioActual!: string;
+
+  encuesta! : Encuesta;
   formGroup : FormGroup;
 
-  constructor(private fb : FormBuilder) {
+  constructor(private fb : FormBuilder, private eService : EncuestasService, private snackBar : MatSnackBar) {
+
     this.formGroup = this.fb.group({
       "nombre": ['', [Validators.required, this.spacesValidator]],
       "apellido": ['', [Validators.required, this.spacesValidator]],
       "edad": ['', [Validators.required, Validators.min(18), Validators.max(99)]],
       "telefono": ['', [Validators.required, this.telValidator, this.numbersValidator]],
+      "valoracion": ['', Validators.required],
+      "juego": ['', Validators.required],
       "comentario": ['', [Validators.required, this.comentValidator]]
 
     });
+
   }
 
   ngOnInit(): void {
@@ -30,6 +40,7 @@ export class EncuestaComponent implements OnInit {
 
     encuestaBtn.addEventListener('click', ()=>{
       popup.classList.toggle('show');
+
     })
     //
   }
@@ -74,6 +85,16 @@ export class EncuestaComponent implements OnInit {
   }
 
   aceptar(){
-    console.log(this.formGroup.getRawValue());
+    this.encuesta  = new Encuesta(this.formGroup.controls['nombre'].value, this.formGroup.controls['apellido'].value,
+    this.formGroup.controls['edad'].value, this.formGroup.controls['telefono'].value, this.formGroup.controls['valoracion'].value,
+    this.formGroup.controls['juego'].value, this.formGroup.controls['comentario'].value, new Date().toLocaleString(), this.usuarioActual);
+
+
+    this.eService.registrarEnBD(this.encuesta).subscribe(()=>{
+      console.log(    this.encuesta );
+    });
+    this.formGroup.reset({'nombre': '', 'apellido':'', 'edad': '', 'telefono':'', 'valoracion': '', 'juego':'', 'comentario': ''});
+    this.snackBar.open(this.usuarioActual + ", tu encuesta fue cargada correctamente 👍", "",{duration:2000});
+
   }
 }
