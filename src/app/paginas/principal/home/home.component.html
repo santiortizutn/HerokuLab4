@@ -1,4 +1,4 @@
-<app-cabecera [componente]="'home'" (evento)= "salir($event)"></app-cabecera>
+<app-cabecera [componente]="'home'" [usuario]="usuarioActual" (evento)= "salir($event)"></app-cabecera>
 
 <div class="principal">
   <div class="spinner-container" *ngIf="this.loading">

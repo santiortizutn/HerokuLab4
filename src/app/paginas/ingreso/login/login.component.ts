@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
             }).then((result)=>{
               if (result.isConfirmed) {
                 this.us.registrarLogEnBD(new Log(data.user?.email+'', new Date().toLocaleString())).subscribe();
+                localStorage.setItem('usuario', '' + data.user?.email);
                 this.router.navigate(["/principal", { Usuario: this.usuario }]);
                 this.snackBar.open("Bienvenido "+data.user?.email+" 🤑", "",{duration:2000});
               }

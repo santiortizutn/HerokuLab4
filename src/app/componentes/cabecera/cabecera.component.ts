@@ -8,7 +8,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class CabeceraComponent implements OnInit {
 
   @Input('componente') componenteActual! : string;
+  @Input("usuario") usuarioActual!: string;
   @Output() evento = new EventEmitter<boolean>();
+
+  usuario : string = localStorage.getItem('usuario')!;
 
 
   constructor() { }

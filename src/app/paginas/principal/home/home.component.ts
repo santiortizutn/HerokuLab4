@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
       this.auth.logOut().then( resp =>{
         this.logueado = false;
         console.log("respuestaa ", resp);
+        localStorage.clear();
         this.snackBar.open("Hasta pronto "+this.usuarioActual+" 😪", "",{duration:1500});
         this.router.navigate(["/"]);
       });
