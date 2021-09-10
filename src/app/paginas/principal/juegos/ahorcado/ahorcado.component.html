@@ -1,0 +1,14 @@
+<app-cabecera [componente]="'juego'"></app-cabecera>
+
+
+<div class="principal">
+
+    <div class="spinner-container" *ngIf="this.loading">
+      <mat-spinner class="spinner"></mat-spinner>
+    </div>
+
+  <div *ngIf="!this.loading" class="div-container">
+
+    <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
+  </div>
+</div>

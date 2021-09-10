@@ -53,5 +53,30 @@
   background-size:cover;
 }
 
+.boton-ahorcado{
+  width: 300px;
+  height: 300px;
+  display: flex;
+  border-radius: 100%;
+  background-image: url("../../../../../assets/juegos/ahorcado.jpg");
+  background-size:cover;
+}
 
+.boton-preguntados{
+  width: 300px;
+  height: 300px;
+  display: flex;
+  border-radius: 100%;
+  background-image: url("../../../../../assets/juegos/preguntados.png");
+  background-size:cover;
+}
+
+.boton-masmenos{
+  width: 300px;
+  height: 300px;
+  display: flex;
+  border-radius: 100%;
+  background-image: url("../../../../../assets/juegos/masmenos.jpg");
+  background-size:cover;
+}
 
