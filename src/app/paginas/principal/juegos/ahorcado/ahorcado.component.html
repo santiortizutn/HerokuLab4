@@ -8,7 +8,27 @@
     </div>
 
   <div *ngIf="!this.loading" class="div-container">
-
+    <div class="div-ahorcado" *ngIf="this.comenzo">
+      <img src="../../../../../assets/ahorcado/ahorcado_{{contadorErrores}}.png" alt="">
+    </div>
+    <div class="div-palabra" *ngIf="this.comenzo">
+      <div *ngFor="let letra of palabraMisteriosa">
+        <button class="letra letra-misteriosa"*ngIf="!acertadas(letra) && !perdio"></button>
+        <button class="letra letra-misteriosa tipografia" *ngIf="acertadas(letra) || perdio">{{letra}}</button>
+      </div>
+    </div>
+    <br>
+    <div class="boton-container" *ngIf="this.comenzo">
+      <button mat-raised-button class="letra" (click)="seleccionar('Q')" [disabled]="usadas('Q')">Q</button><button mat-raised-button class="letra" (click)="seleccionar('W')" [disabled]="usadas('W')">W</button><button mat-raised-button class="letra" (click)="seleccionar('E')" [disabled]="usadas('E')">E</button>
+      <button mat-raised-button class="letra" (click)="seleccionar('R')" [disabled]="usadas('R')">R</button><button mat-raised-button class="letra" (click)="seleccionar('T')" [disabled]="usadas('T')">T</button><button mat-raised-button class="letra" (click)="seleccionar('Y')" [disabled]="usadas('Y')">Y</button>
+      <button mat-raised-button class="letra" (click)="seleccionar('U')" [disabled]="usadas('U')">U</button><button mat-raised-button class="letra" (click)="seleccionar('I')" [disabled]="usadas('I')">I</button><button mat-raised-button class="letra" (click)="seleccionar('O')" [disabled]="usadas('O')">O</button>
+      <button mat-raised-button class="letra" (click)="seleccionar('P')" [disabled]="usadas('P')">P</button><button mat-raised-button class="letra" (click)="seleccionar('A')" [disabled]="usadas('A')">A</button><button mat-raised-button class="letra" (click)="seleccionar('S')" [disabled]="usadas('S')">S</button>
+      <button mat-raised-button class="letra" (click)="seleccionar('D')" [disabled]="usadas('D')">D</button><button mat-raised-button class="letra" (click)="seleccionar('F')" [disabled]="usadas('F')">F</button><button mat-raised-button class="letra" (click)="seleccionar('G')" [disabled]="usadas('G')">G</button>
+      <button mat-raised-button class="letra" (click)="seleccionar('H')" [disabled]="usadas('H')">H</button><button mat-raised-button class="letra" (click)="seleccionar('J')" [disabled]="usadas('J')">J</button><button mat-raised-button class="letra" (click)="seleccionar('K')" [disabled]="usadas('K')">K</button>
+      <button mat-raised-button class="letra" (click)="seleccionar('L')" [disabled]="usadas('L')">L</button><button mat-raised-button class="letra" (click)="seleccionar('Ñ')" [disabled]="usadas('Ñ')">Ñ</button><button mat-raised-button class="letra" (click)="seleccionar('Z')" [disabled]="usadas('Z')">Z</button>
+      <button mat-raised-button class="letra" (click)="seleccionar('X')" [disabled]="usadas('X')">X</button><button mat-raised-button class="letra" (click)="seleccionar('C')" [disabled]="usadas('C')">C</button><button mat-raised-button class="letra" (click)="seleccionar('V')" [disabled]="usadas('V')">V</button>
+      <button mat-raised-button class="letra" (click)="seleccionar('B')" [disabled]="usadas('B')">B</button><button mat-raised-button class="letra" (click)="seleccionar('N')" [disabled]="usadas('N')">N</button><button mat-raised-button class="letra" (click)="seleccionar('M')" [disabled]="usadas('M')">M</button>
+    </div>
     <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
   </div>
 </div>
