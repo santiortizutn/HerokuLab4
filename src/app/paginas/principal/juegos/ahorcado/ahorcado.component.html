@@ -30,5 +30,6 @@
       <button mat-raised-button class="letra" (click)="seleccionar('B')" [disabled]="usadas('B')">B</button><button mat-raised-button class="letra" (click)="seleccionar('N')" [disabled]="usadas('N')">N</button><button mat-raised-button class="letra" (click)="seleccionar('M')" [disabled]="usadas('M')">M</button>
     </div>
     <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
+    <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
   </div>
 </div>

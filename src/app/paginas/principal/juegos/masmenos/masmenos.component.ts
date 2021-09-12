@@ -16,10 +16,18 @@ export class MasmenosComponent implements OnInit {
   juegoActual:string = "masmenos";
   comenzo : boolean = false;
 
+  arrayCartas : Array<number> = [];
+  cartaActual : number = Math.floor(Math.random() * 12) + 1;
+  cartaAnterior : number = 0;
+  puntos : number = 0;
+  resultado : string = "";
+
+
   constructor(private router: Router, private fireAuth:AngularFireAuth, private listadoService:ListadosService) { }
 
   ngOnInit(): void {
     this.loading = true;
+    this.randomizarCartas();
     setTimeout(()=>{
       this.loading = false;
     },2000);
@@ -30,8 +38,47 @@ export class MasmenosComponent implements OnInit {
         this.usuarioActual = resp.email;
       }else{
         this.logueado = false;
-        this.router.navigate(["/"]);
+        //this.router.navigate(["/"]);
       }
     });
+  }
+
+  randomizarCartas(){
+    if (this.arrayCartas.length != 10) {
+      for (let i = 0; i < this.arrayCartas.length; ) {
+        if (this.arrayCartas[i] == this.cartaActual) {
+          this.cartaActual = Math.floor(Math.random() * 12) + 1;
+          i = 0;
+        }else{
+          i++;
+        }
+      }
+
+      this.arrayCartas.push(this.cartaActual);
+      console.log(this.arrayCartas);
+
+      if (this.arrayCartas.length == 10) {
+        if (this.puntos >= 6) {
+          console.log("GANO");
+        }else{
+          console.log("PERDIO");
+        }
+      }
+    }
+
+  }
+
+  jugar(eleccion : string){
+
+    this.cartaAnterior = this.cartaActual;
+    this.randomizarCartas();
+    if (this.cartaActual >  this.cartaAnterior) {
+      this.resultado = "mayor";
+    }else{
+      this.resultado = "menor"
+    }
+    if (eleccion == this.resultado) {
+      this.puntos++;
+    }
   }
 }
