@@ -1,0 +1,23 @@
+<app-cabecera [componente]="'juego'"></app-cabecera>
+
+
+<div class="principal">
+
+    <div class="spinner-container" *ngIf="this.loading">
+      <mat-spinner class="spinner"></mat-spinner>
+    </div>
+
+  <div *ngIf="!this.loading" class="div-container">
+    <div class="div-carta" *ngIf="comenzo">
+      <p class="tipografia">Tus puntos: {{this.puntos}} - (6 necesarios para ganar) </p>
+      <p class="tipografia">Cartas vistas: {{this.arrayCartas.length}}/10</p>
+      <img src="../../../../../assets/masmenos/{{cartaActual}}.jpg" alt="">
+      <div class="boton-container" *ngIf="this.comenzo">
+        <button mat-raised-button class="btn-mayor tipografia" (click)="jugar('mayor')">MAYOR</button>
+        <button mat-raised-button class="btn-menor tipografia" (click)="jugar('menor')">MENOR</button>
+      </div>
+    </div>
+    <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
+    <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
+  </div>
+</div>

@@ -6,8 +6,8 @@
   </div>
 
   <div class="boton-container" *ngIf="!this.loading">
-      <div class="div-container">
-        <button mat-raised-button class="boton-memo hvr-glow hvr-shrink" [routerLink]="['/juegos/memo']"></button>
+ <!--     <div class="div-container">
+        <button mat-raised-button class="boton memo hvr-glow hvr-shrink" [routerLink]="['/juegos/memo']"></button>
         <br>
         <br>
         <mat-expansion-panel>
@@ -21,7 +21,7 @@
       </div>
 
       <div class="div-container">
-        <button mat-raised-button class="boton-ppt hvr-glow hvr-shrink" [routerLink]="['/juegos/ppt']"></button>
+        <button mat-raised-button class="boton ppt hvr-glow hvr-shrink" [routerLink]="['/juegos/ppt']"></button>
         <br>
         <br>
         <mat-expansion-panel>
@@ -35,7 +35,7 @@
       </div>
 
       <div class="div-container">
-        <button mat-raised-button class="boton-tateti hvr-glow hvr-shrink" [routerLink]="['/juegos/tateti']"></button>
+        <button mat-raised-button class="boton tateti hvr-glow hvr-shrink" [routerLink]="['/juegos/tateti']"></button>
         <br>
         <br>
         <mat-expansion-panel>
@@ -48,9 +48,10 @@
              Suele ser azar pero tambien hay que aplicar estrategia.</p>
         </mat-expansion-panel>
       </div>
+    -->
 
       <div class="div-container">
-        <button mat-raised-button class="boton-mio hvr-glow hvr-shrink" [routerLink]="['/juegos/dados']"></button>
+        <button mat-raised-button class="boton mio hvr-glow hvr-shrink" [routerLink]="['/juegos/dados']"></button>
         <br>
         <br>
         <mat-expansion-panel>
@@ -60,6 +61,46 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <p>Como el BlackJack pero con dados. Tenes 3 tiros para sumar 21, si te pasas perdes. Ojo, jugas contra la pc, suerte. </p>
+        </mat-expansion-panel>
+      </div>
+      <div class="div-container">
+        <button mat-raised-button class="boton ahorcado hvr-glow hvr-shrink" [routerLink]="['/juegos/ahorcado']"></button>
+        <br>
+        <br>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="tipografia">
+              AHORCADO
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>El clasico ahorcado. El objetivo es descubrir la palabra misteriosa antes de que el personaje muera. </p>
+        </mat-expansion-panel>
+      </div>
+      <div class="div-container">
+        <button mat-raised-button class="boton masmenos hvr-glow hvr-shrink" [routerLink]="['/juegos/masmenos']"></button>
+        <br>
+        <br>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="tipografia">
+              MAYOR O MENOR
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Juego de cartas clasico, tenes que adivinar si la proxima carta es mayor o menor que la anterior.
+             Hay que sumar minimo 6 puntos en 10 intentos para ganar. </p>
+        </mat-expansion-panel>
+      </div>
+      <div class="div-container">
+        <button mat-raised-button class="boton preguntados hvr-glow hvr-shrink" [routerLink]="['/juegos/preguntados']"></button>
+        <br>
+        <br>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="tipografia">
+              PREGUNTADOS
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Es un juego de preguntas y respuestas con opciones y categorias. Entretenido y para toda la familia. </p>
         </mat-expansion-panel>
       </div>
   </div>

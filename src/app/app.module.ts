@@ -50,6 +50,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { Dados21Component } from './paginas/principal/juegos/dados21/dados21.component';
 import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AhorcadoComponent } from './paginas/principal/juegos/ahorcado/ahorcado.component';
+import { MasmenosComponent } from './paginas/principal/juegos/masmenos/masmenos.component';
+import { PreguntadosComponent } from './paginas/principal/juegos/preguntados/preguntados.component';
 
 //
 
@@ -70,7 +73,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CabeceraComponent,
     ListadosComponent,
     Dados21Component,
-    EncuestaComponent
+    EncuestaComponent,
+    AhorcadoComponent,
+    MasmenosComponent,
+    PreguntadosComponent
 
   ],
   imports: [
