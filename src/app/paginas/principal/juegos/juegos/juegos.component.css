@@ -45,6 +45,7 @@
   background-image: url("../../../../../assets/juegos/dados.jpg");
 }
 
+<<<<<<< HEAD
 .ahorcado{
   background-image: url("../../../../../assets/juegos/ahorcado.jpg");
 }
@@ -55,5 +56,32 @@
 
 .masmenos{
   background-image: url("../../../../../assets/juegos/masmenos.jpg");
+=======
+.boton-ahorcado{
+  width: 300px;
+  height: 300px;
+  display: flex;
+  border-radius: 100%;
+  background-image: url("../../../../../assets/juegos/ahorcado.jpg");
+  background-size:cover;
+}
+
+.boton-preguntados{
+  width: 300px;
+  height: 300px;
+  display: flex;
+  border-radius: 100%;
+  background-image: url("../../../../../assets/juegos/preguntados.png");
+  background-size:cover;
+}
+
+.boton-masmenos{
+  width: 300px;
+  height: 300px;
+  display: flex;
+  border-radius: 100%;
+  background-image: url("../../../../../assets/juegos/masmenos.jpg");
+  background-size:cover;
+>>>>>>> 83bcb43bcd2dd448e1db5e36315f544bb8007677
 }
 
