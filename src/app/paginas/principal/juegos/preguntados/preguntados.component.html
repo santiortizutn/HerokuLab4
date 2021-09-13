@@ -8,6 +8,7 @@
     </div>
 
   <div *ngIf="!this.loading" class="div-container">
+    <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
     <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
   </div>
 </div>

@@ -39,7 +39,7 @@ export class MasmenosComponent implements OnInit {
         this.usuarioActual = resp.email;
       }else{
         this.logueado = false;
-        //this.router.navigate(["/"]);
+        this.router.navigate(["/"]);
       }
     });
   }
