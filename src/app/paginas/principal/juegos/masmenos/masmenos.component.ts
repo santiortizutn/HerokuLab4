@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { ListadosService } from 'src/app/servicios/listados.service';
-<<<<<<< HEAD
 import Swal from 'sweetalert2';
-=======
->>>>>>> 83bcb43bcd2dd448e1db5e36315f544bb8007677
 
 @Component({
   selector: 'app-masmenos',
@@ -21,11 +18,7 @@ export class MasmenosComponent implements OnInit {
   comenzo : boolean = false;
 
   arrayCartas : Array<number> = [];
-<<<<<<< HEAD
   cartaActual : number = Math.floor(Math.random() * 10) + 1;
-=======
-  cartaActual : number = Math.floor(Math.random() * 12) + 1;
->>>>>>> 83bcb43bcd2dd448e1db5e36315f544bb8007677
   cartaAnterior : number = 0;
   puntos : number = 0;
   resultado : string = "";
@@ -55,11 +48,7 @@ export class MasmenosComponent implements OnInit {
     if (this.arrayCartas.length != 10) {
       for (let i = 0; i < this.arrayCartas.length; ) {
         if (this.arrayCartas[i] == this.cartaActual) {
-<<<<<<< HEAD
           this.cartaActual = Math.floor(Math.random() * 10) + 1;
-=======
-          this.cartaActual = Math.floor(Math.random() * 12) + 1;
->>>>>>> 83bcb43bcd2dd448e1db5e36315f544bb8007677
           i = 0;
         }else{
           i++;
@@ -68,17 +57,6 @@ export class MasmenosComponent implements OnInit {
 
       this.arrayCartas.push(this.cartaActual);
       console.log(this.arrayCartas);
-<<<<<<< HEAD
-=======
-
-      if (this.arrayCartas.length == 10) {
-        if (this.puntos >= 6) {
-          console.log("GANO");
-        }else{
-          console.log("PERDIO");
-        }
-      }
->>>>>>> 83bcb43bcd2dd448e1db5e36315f544bb8007677
     }
 
   }
@@ -95,7 +73,6 @@ export class MasmenosComponent implements OnInit {
     if (eleccion == this.resultado) {
       this.puntos++;
     }
-<<<<<<< HEAD
     if (this.arrayCartas.length == 10) {
       if (this.puntos >= 6) {
         Swal.fire({
@@ -125,7 +102,4 @@ export class MasmenosComponent implements OnInit {
     this.randomizarCartas();
   }
 
-=======
-  }
->>>>>>> 83bcb43bcd2dd448e1db5e36315f544bb8007677
 }
