@@ -3,12 +3,32 @@
 
 <div class="principal">
 
-    <div class="spinner-container" *ngIf="this.loading">
-      <mat-spinner class="spinner"></mat-spinner>
-    </div>
+  <div class="spinner-container" *ngIf="this.loading">
+    <mat-spinner class="spinner"></mat-spinner>
+  </div>
 
   <div *ngIf="!this.loading" class="div-container">
+
+    <div class="div-carta" *ngIf="comenzo">
+      <p class="tipografia">¿Cual es este pokémon?</p>
+      <img src="{{this.preguntaActual.imagen}}" alt="">
+      <div class="boton-container" *ngFor="let index of this.botonesIndex">
+        <button mat-raised-button class="btn-correcto tipografia" *ngIf="index == 1" [disabled]="mostrarRespuestas"
+          (click)="correcto()">{{this.preguntaActual.correcta}}</button>
+        <button mat-raised-button class="btn-incorrecto tipografia" *ngIf="index == 2" [disabled]="mostrarRespuestas"
+          (click)="incorrecto()">{{this.preguntaActual.incorrecta1}}</button>
+        <button mat-raised-button class="btn-incorrecto tipografia" *ngIf="index == 3" [disabled]="mostrarRespuestas"
+          (click)="incorrecto()">{{this.preguntaActual.incorrecta2}}</button>
+        <button mat-raised-button class="btn-incorrecto tipografia" *ngIf="index == 4" [disabled]="mostrarRespuestas"
+          (click)="incorrecto()">{{this.preguntaActual.incorrecta3}}</button>
+      </div>
+      <div class="flotantes">
+        <button mat-icon-button class="timer-btn tipografia">{{this.segundos}}s</button>
+        <p class="tipografia">Tus puntos: {{this.puntos}}/60 </p>
+        <p class="tipografia">Preguntas vistas: {{preguntasVistas}}/10</p>
+      </div>
+    </div>
     <app-chat [juego]="juegoActual" [usuario]="usuarioActual"></app-chat>
-    <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.comenzo = true"> COMENZAR A JUGAR</button>
+    <button *ngIf="!comenzo" class="btn-comenzar" (click)="this.randomizarCartas()"> COMENZAR A JUGAR</button>
   </div>
 </div>
