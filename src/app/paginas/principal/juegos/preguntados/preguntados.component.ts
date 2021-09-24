@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Juego } from 'src/app/clases/juego';
 import { Pregunta } from 'src/app/clases/pregunta';
 import { ListadosService } from 'src/app/servicios/listados.service';
 import { PokemonService } from 'src/app/servicios/pokemon.service';
@@ -113,7 +114,10 @@ export class PreguntadosComponent implements OnInit {
           showConfirmButton: false,
           timer: 3000,
         }).then(() => {
-          this.reset();
+          this.listadoService.registrarEnBD(new Juego("preguntados",this.usuarioActual,"Gano",new Date().toLocaleString(),new Date().getTime())).subscribe(
+            ()=>{
+              this.reset();
+            });
         });
       } else {
         Swal.fire({
@@ -123,7 +127,10 @@ export class PreguntadosComponent implements OnInit {
           showConfirmButton: false,
           timer: 3000,
         }).then(() => {
-          this.reset();
+          this.listadoService.registrarEnBD(new Juego("preguntados",this.usuarioActual,"Perdio",new Date().toLocaleString(),new Date().getTime())).subscribe(
+            ()=>{
+              this.reset();
+            });
         });
       }
     }

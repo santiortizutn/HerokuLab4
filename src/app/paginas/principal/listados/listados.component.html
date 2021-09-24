@@ -7,7 +7,7 @@
 
   <div *ngIf="!this.loading" class="div-container">
     <mat-tab-group mat-stretch-tabs animationDuration="0ms" [backgroundColor]="'primary'" [color]="'accent'" class="card-container">
-      <mat-tab label="MEMOTEST">
+      <mat-tab label="MAYOR O MENOR">
 
           <div class="cabecera">
             <span>JUGADOR</span>
@@ -16,14 +16,14 @@
           </div>
           <mat-divider></mat-divider>
           <div class="contenedor">
-            <div class="fila" *ngFor="let res of listaMemo">
+            <div class="fila" *ngFor="let res of listaMom">
               <span>{{res.jugador}}</span>
               <span>{{res.resultado}}</span>
               <span>{{res.fecha}}</span>
             </div>
           </div>
       </mat-tab>
-      <mat-tab label="TATETI">
+      <mat-tab label="PREGUNTADOS">
         <div class="cabecera">
           <span>JUGADOR</span>
           <Span>RESULTADO</Span>
@@ -31,14 +31,14 @@
         </div>
         <mat-divider></mat-divider>
         <div class="contenedor">
-          <div class="fila" *ngFor="let res of listaTtt">
+          <div class="fila" *ngFor="let res of listaPre">
             <span>{{res.jugador}}</span>
             <span>{{res.resultado}}</span>
             <span>{{res.fecha}}</span>
           </div>
         </div>
       </mat-tab>
-      <mat-tab label="PIEDRA PAPEL O TIJERA" >
+      <mat-tab label="AHORCADO" >
         <div class="cabecera">
           <span>JUGADOR</span>
           <Span>RESULTADO</Span>
@@ -46,7 +46,7 @@
         </div>
         <mat-divider></mat-divider>
         <div class="contenedor">
-          <div class="fila" *ngFor="let res of listaPpt">
+          <div class="fila" *ngFor="let res of listaAhor">
             <span class="espacio">{{res.jugador}}</span>
             <span class="espacio">{{res.resultado}}</span>
             <span class="espacio">{{res.fecha}}</span>

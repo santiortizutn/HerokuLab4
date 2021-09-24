@@ -55,9 +55,9 @@
         <mat-label for="juego">Juego favorito</mat-label>
           <select class="form-control" formControlName="juego">
             <option value="">Seleccione uno</option>
-            <option value="memotest">Memotest</option>
-            <option value="ppt">Piedra Papel o Tijera</option>
-            <option value="tateti">TaTeTi</option>
+            <option value="memotest">Ahorcado</option>
+            <option value="ppt">Mayor o Menor</option>
+            <option value="tateti">Preguntados</option>
             <option value="dados21">Dados21</option>
           </select>
         <small class="invalid" *ngIf="formGroup.get('juego')?.errors?.required && formGroup.get('juego')?.touched">El juego es requerido</small>

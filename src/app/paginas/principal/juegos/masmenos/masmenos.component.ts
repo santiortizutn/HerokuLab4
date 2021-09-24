@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Juego } from 'src/app/clases/juego';
 import { ListadosService } from 'src/app/servicios/listados.service';
 import Swal from 'sweetalert2';
 
@@ -81,7 +82,12 @@ export class MasmenosComponent implements OnInit {
           title: 'Bien, ganaste!',
           showConfirmButton: false,
           timer:2000
-        }).then(()=>{this.reset()});
+        }).then(()=>{
+          this.listadoService.registrarEnBD(new Juego("mayoromenor",this.usuarioActual,"Gano",new Date().toLocaleString(),new Date().getTime())).subscribe(
+            ()=>{
+              this.reset();
+            });
+        });
       }else{
         Swal.fire({
           position: 'bottom',
@@ -89,7 +95,12 @@ export class MasmenosComponent implements OnInit {
           title: 'Perdiste, intenta de nuevo!',
           showConfirmButton: false,
           timer:2000
-        }).then(()=>{this.reset()});
+        }).then(()=>{
+          this.listadoService.registrarEnBD(new Juego("mayoromenor",this.usuarioActual,"Perdio",new Date().toLocaleString(),new Date().getTime())).subscribe(
+            ()=>{
+              this.reset();
+            });
+        });
       }
     }
   }

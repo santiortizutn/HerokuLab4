@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Juego } from 'src/app/clases/juego';
 import { ListadosService } from 'src/app/servicios/listados.service';
 import Swal from 'sweetalert2';
 
@@ -75,7 +76,12 @@ export class AhorcadoComponent implements OnInit {
           title: 'Perdiste, volve a intentar!',
           showConfirmButton: false,
           timer:3000
-        }).then(()=>{this.reset()});
+        }).then(()=>{
+          this.listadoService.registrarEnBD(new Juego("ahorcado",this.usuarioActual,"Perdio",new Date().toLocaleString(),new Date().getTime())).subscribe(
+            ()=>{
+              this.reset();
+            });
+        });
       }
     }else{
       if (this.letrasAcertadas.length == this.palabraMisteriosa.length) {
@@ -86,7 +92,11 @@ export class AhorcadoComponent implements OnInit {
           title: 'Bien, ganaste!',
           showConfirmButton: false,
           timer:2000
-        }).then(()=>{this.reset()});
+        }).then(()=>{
+          this.listadoService.registrarEnBD(new Juego("ahorcado",this.usuarioActual,"Gano",new Date().toLocaleString(),new Date().getTime())).subscribe(
+            ()=>{
+              this.reset();
+            });});
       }
     }
   }

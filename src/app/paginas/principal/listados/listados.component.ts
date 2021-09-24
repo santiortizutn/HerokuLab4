@@ -19,6 +19,9 @@ export class ListadosComponent implements OnInit {
   listaTtt : Array<Juego> = [];
   listaPpt : Array<Juego> = [];
   listaDados : Array<Juego> = [];
+  listaMom : Array<Juego> = [];
+  listaPre : Array<Juego> = [];
+  listaAhor : Array<Juego> = [];
 
   constructor(private router: Router, private fireAuth:AngularFireAuth, private listadoService : ListadosService) { }
 
@@ -63,6 +66,15 @@ export class ListadosComponent implements OnInit {
               break;
             case "dados21":
               this.listaDados.push(this.resultados[i]);
+              break;
+            case "ahorcado":
+              this.listaAhor.push(this.resultados[i]);
+              break;
+            case "mayoromenor":
+              this.listaMom.push(this.resultados[i]);
+              break;
+            case "preguntados":
+              this.listaPre.push(this.resultados[i]);
               break;
 
             default:
